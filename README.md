@@ -1,7 +1,10 @@
 # laravel-basic-task-list
 
-Tutorial:
+## Tutorial:
+
 https://blog.nojaf.com/2016/08/19/laradock-on-windows-10/
+
+- laravel-basic-task
 https://laravel.com/docs/5.2/quickstart#prepping-the-database
 
 ISSUES:
