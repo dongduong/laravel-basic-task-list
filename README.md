@@ -7,6 +7,20 @@ https://blog.nojaf.com/2016/08/19/laradock-on-windows-10/
 - laravel-basic-task
 https://laravel.com/docs/5.2/quickstart#prepping-the-database
 
+## How to run:
+
+Modify `APP_CODE_PATH_HOST` in laradock/.env to point to the path of your applications code on your host, example
+```
+APP_CODE_PATH_HOST=../laravel-basic-task
+```
+
+Update database configurations, nginx port...
+
+Run docker compose:
+```
+docker-compose up -d nginx mysql
+```
+
 ## ISSUES:
 
 - *PDOException::("PDO::__construct(): The server requested authentication method unknown to the client [caching_sha2_password]")*
