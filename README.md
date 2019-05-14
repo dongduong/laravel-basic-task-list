@@ -1,6 +1,8 @@
 # laravel-basic-task-list
 
-Tutorial: https://blog.nojaf.com/2016/08/19/laradock-on-windows-10/
+Tutorial:
+https://blog.nojaf.com/2016/08/19/laradock-on-windows-10/
+https://laravel.com/docs/5.2/quickstart#prepping-the-database
 
 ISSUES:
 Fix issue: PDOException::("PDO::__construct(): The server requested authentication method unknown to the client [caching_sha2_password]")
