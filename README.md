@@ -5,7 +5,7 @@
 https://blog.nojaf.com/2016/08/19/laradock-on-windows-10/
 
 - laravel-basic-task
-https://laravel.com/docs/5.2/quickstart#prepping-the-database
+https://laravel.com/docs/5.2/quickstart
 
 ## How to run:
 
@@ -19,6 +19,16 @@ Update database configurations, nginx port...
 Run docker compose:
 ```
 docker-compose up -d nginx mysql
+```
+
+Create new Laravel project, run this command after docker compose up
+```
+docker exec -it laradock_workspace_1 bash
+```
+
+Now we can run bash commands inside the workspace container. We’ll use Composer to create our new Laravel project
+```
+root@81acfe2e1e76:/var/www/# composer create-project laravel/laravel .
 ```
 
 ## ISSUES:
