@@ -15,7 +15,7 @@ https://www.avored.com/
 https://www.avored.com/docs/user/installation
 https://www.youtube.com/watch?v=IbR1xJWFOLI
 
--laravel-myshop-aimeos
+- laravel-myshop-aimeos
 https://aimeos.org/laravel-ecommerce-package
 https://github.com/aimeos/aimeos-laravel
 
