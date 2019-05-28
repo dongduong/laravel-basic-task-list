@@ -15,6 +15,11 @@ https://www.avored.com/
 https://www.avored.com/docs/user/installation
 https://www.youtube.com/watch?v=IbR1xJWFOLI
 
+-laravel-myshop-aimeos
+https://aimeos.org/laravel-ecommerce-package
+https://github.com/aimeos/aimeos-laravel
+
+
 ## How to run:
 
 Modify `APP_CODE_PATH_HOST` in laradock/.env to point to the path of your applications code on your host, example
