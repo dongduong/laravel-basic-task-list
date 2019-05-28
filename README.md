@@ -10,6 +10,11 @@ https://laravel.com/docs/5.2/quickstart
 - laravel-intermediate-task
 https://laravel.com/docs/5.2/quickstart-intermediate
 
+- laraecom
+https://www.avored.com/
+https://www.avored.com/docs/user/installation
+https://www.youtube.com/watch?v=IbR1xJWFOLI
+
 ## How to run:
 
 Modify `APP_CODE_PATH_HOST` in laradock/.env to point to the path of your applications code on your host, example
