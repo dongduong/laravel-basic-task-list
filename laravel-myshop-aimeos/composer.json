@@ -12,10 +12,10 @@
     }],
     "require": {
         "php": ">=7.0.4",
+        "aimeos/aimeos-laravel": "^2019.04",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0",
-        "aimeos/aimeos-laravel": "~2018.10"
+        "laravel/tinker": "~1.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -61,7 +61,8 @@
             "@php artisan package:discover"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=public --force"
+            "@php artisan vendor:publish --tag=public --force",
+            "@php artisan migrate"
         ]
     },
     "config": {
