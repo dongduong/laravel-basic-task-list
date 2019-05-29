@@ -19,6 +19,11 @@ https://www.youtube.com/watch?v=IbR1xJWFOLI
 https://aimeos.org/laravel-ecommerce-package
 https://github.com/aimeos/aimeos-laravel
 
+- laravel-ecom-bagisto
+https://webkul.com/blog/laravel-ecommerce-website
+https://bagisto.com
+https://github.com/bagisto/bagisto
+
 
 ## How to run:
 
