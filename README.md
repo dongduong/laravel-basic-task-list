@@ -63,3 +63,10 @@ GRANT ALL PRIVILEGES ON *.* TO 'new_user'@'%';
 SHOW GRANTS FOR 'new_user'@'%';
 FLUSH PRIVILEGES;
 ```
+
+- Error when build nginx:  *adduser: group 'www-data' in use*
+
+ROOT CAUSE: The newest nginx:alpine image already has the www-data group
+
+How to fix: change the https://github.com/laradock/laradock/blob/HEAD/nginx/Dockerfile#L20 to 
+`adduser -D -H -u 1000 -s /bin/bash -Gwww-data www-data`
