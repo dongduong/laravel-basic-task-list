@@ -22,9 +22,11 @@
                         <th width="10">
 
                         </th>
-                        <th>
-                            {{ trans('cruds.course.fields.teachers') }}
-                        </th>
+                        @if (Auth::user()->isAdmin())
+                            <th>
+                                {{ trans('cruds.course.fields.teachers') }}
+                            </th>
+                        @endif
                         <th>
                             {{ trans('cruds.course.fields.title') }}
                         </th>
@@ -54,11 +56,13 @@
                             <td>
 
                             </td>
-                            <td>
-                                @foreach($course->teachers as $key => $item)
-                                    <span class="badge badge-info">{{ $item->name }}</span>
-                                @endforeach
-                            </td>
+                            @if (Auth::user()->isAdmin())
+                                <td>
+                                    @foreach($course->teachers as $key => $item)
+                                        <span class="badge badge-info">{{ $item->name }}</span>
+                                    @endforeach
+                                </td>
+                            @endif
                             <td>
                                 {{ $course->title ?? '' }}
                             </td>

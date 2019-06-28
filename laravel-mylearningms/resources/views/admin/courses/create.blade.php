@@ -9,6 +9,7 @@
     <div class="card-body">
         <form action="{{ route("admin.courses.store") }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @if(Auth::user()->isAdmin())
             <div class="form-group {{ $errors->has('teachers') ? 'has-error' : '' }}">
                 <label for="teachers">{{ trans('cruds.course.fields.teachers') }}
                     <span class="btn btn-info btn-xs select-all">Select all</span>
@@ -27,6 +28,7 @@
                     {{ trans('cruds.course.fields.teachers_helper') }}
                 </p>
             </div>
+            @endif
             <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
                 <label for="title">{{ trans('cruds.course.fields.title') }}*</label>
                 <input type="text" id="title" name="title" class="form-control" value="{{ old('title', isset($course) ? $course->title : '') }}" required>

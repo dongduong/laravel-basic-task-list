@@ -18,7 +18,7 @@ class CoursesController extends Controller
     {
         abort_unless(\Gate::allows('course_access'), 403);
 
-        $courses = Course::all();
+        $courses = Course::ofTeacher()->get();
 
         return view('admin.courses.index', compact('courses'));
     }
@@ -27,7 +27,7 @@ class CoursesController extends Controller
     {
         abort_unless(\Gate::allows('course_create'), 403);
 
-        $teachers = User::all()->pluck('name', 'id');
+        $teachers = User::whereHas('roles', function($q) { $q->where('role_id', 2); })->get()->pluck('name', 'id');
 
         return view('admin.courses.create', compact('teachers'));
     }
@@ -37,7 +37,8 @@ class CoursesController extends Controller
         abort_unless(\Gate::allows('course_create'), 403);
 
         $course = Course::create($request->all());
-        $course->teachers()->sync($request->input('teachers', []));
+        $teacher = \Auth::user()->isAdmin() ? $request->input('teachers', []) : [\Auth::user()->id];
+        $course->teachers()->sync($teacher);
 
         if ($request->input('course_image', false)) {
             $course->addMedia(storage_path('tmp/uploads/' . $request->input('course_image')))->toMediaCollection('course_image');
@@ -50,7 +51,7 @@ class CoursesController extends Controller
     {
         abort_unless(\Gate::allows('course_edit'), 403);
 
-        $teachers = User::all()->pluck('name', 'id');
+        $teachers = User::whereHas('roles', function($q) { $q->where('role_id', 2); })->get()->pluck('name', 'id');
 
         $course->load('teachers');
 
@@ -62,7 +63,8 @@ class CoursesController extends Controller
         abort_unless(\Gate::allows('course_edit'), 403);
 
         $course->update($request->all());
-        $course->teachers()->sync($request->input('teachers', []));
+        $teacher = \Auth::user()->isAdmin() ? $request->input('teachers', []) : [\Auth::user()->id];
+        $course->teachers()->sync($teacher);
 
         if ($request->input('course_image', false)) {
             if (!$course->course_image || $request->input('course_image') !== $course->course_image->file_name) {

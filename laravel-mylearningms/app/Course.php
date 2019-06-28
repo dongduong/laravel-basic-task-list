@@ -58,4 +58,14 @@ class Course extends Model implements HasMedia
     {
         $this->attributes['start_date'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
     }
+
+    public function scopeOfTeacher($query)
+    {
+        if (!\Auth::user()->isAdmin()) {
+            return $query->whereHas('teachers', function($q) {
+                $q->where('user_id', \Auth::user()->id);
+            });
+        }
+        return $query;
+    }
 }
