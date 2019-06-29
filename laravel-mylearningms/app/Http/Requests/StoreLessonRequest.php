@@ -18,9 +18,6 @@ class StoreLessonRequest extends FormRequest
             'title'    => [
                 'required',
             ],
-            'position' => [
-                'required',
-            ],
         ];
     }
 }

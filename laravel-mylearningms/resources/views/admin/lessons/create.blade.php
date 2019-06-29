@@ -84,18 +84,6 @@
                     {{ trans('cruds.lesson.fields.full_text_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('position') ? 'has-error' : '' }}">
-                <label for="position">{{ trans('cruds.lesson.fields.position') }}*</label>
-                <input type="number" id="position" name="position" class="form-control" value="{{ old('position', isset($lesson) ? $lesson->position : '') }}" step="1" required>
-                @if($errors->has('position'))
-                    <p class="help-block">
-                        {{ $errors->first('position') }}
-                    </p>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.lesson.fields.position_helper') }}
-                </p>
-            </div>
             <div class="form-group {{ $errors->has('downloadable_files') ? 'has-error' : '' }}">
                 <label for="downloadable_files">{{ trans('cruds.lesson.fields.downloadable_files') }}</label>
                 <div class="needsclick dropzone" id="downloadable_files-dropzone">

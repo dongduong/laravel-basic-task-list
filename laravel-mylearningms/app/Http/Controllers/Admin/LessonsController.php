@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
+
 use App\Course;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\MediaUploadingTrait;
@@ -14,11 +16,16 @@ class LessonsController extends Controller
 {
     use MediaUploadingTrait;
 
-    public function index()
+    public function index(Request $request)
     {
         abort_unless(\Gate::allows('lesson_access'), 403);
 
-        $lessons = Lesson::all();
+        $lessons = Lesson::whereIn('course_id', Course::ofTeacher()->pluck('id'));
+        if ($request->input('course_id')) {
+            $lessons = $lessons->where('course_id', $request->input('course_id'))->get();
+        } else {
+            $lessons = $lessons->get();
+        }
 
         return view('admin.lessons.index', compact('lessons'));
     }
@@ -27,7 +34,7 @@ class LessonsController extends Controller
     {
         abort_unless(\Gate::allows('lesson_create'), 403);
 
-        $courses = Course::all()->pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $courses = Course::ofTeacher()->pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         return view('admin.lessons.create', compact('courses'));
     }
@@ -36,7 +43,7 @@ class LessonsController extends Controller
     {
         abort_unless(\Gate::allows('lesson_create'), 403);
 
-        $lesson = Lesson::create($request->all());
+        $lesson = Lesson::create($request->all() + ['position' => Lesson::where('course_id', $request->course_id)->max('position') + 1] );
 
         if ($request->input('lesson_image', false)) {
             $lesson->addMedia(storage_path('tmp/uploads/' . $request->input('lesson_image')))->toMediaCollection('lesson_image');
@@ -46,14 +53,14 @@ class LessonsController extends Controller
             $lesson->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('downloadable_files');
         }
 
-        return redirect()->route('admin.lessons.index');
+        return redirect()->route('admin.lessons.index', ['course_id' => $request->course_id]);
     }
 
     public function edit(Lesson $lesson)
     {
         abort_unless(\Gate::allows('lesson_edit'), 403);
 
-        $courses = Course::all()->pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $courses = Course::ofTeacher()->pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $lesson->load('course');
 
@@ -90,7 +97,7 @@ class LessonsController extends Controller
             }
         }
 
-        return redirect()->route('admin.lessons.index');
+        return redirect()->route('admin.lessons.index', ['course_id' => $request->course_id]);
     }
 
     public function show(Lesson $lesson)

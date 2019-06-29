@@ -18,9 +18,6 @@ class UpdateLessonRequest extends FormRequest
             'title'    => [
                 'required',
             ],
-            'position' => [
-                'required',
-            ],
         ];
     }
 }

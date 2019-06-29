@@ -90,6 +90,9 @@
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.courses.show', $course->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.lessons.index', ['course_id' => $course->id]) }}">
+                                        {{ trans('cruds.lesson.title') }}
+                                    </a>
                                 @endcan
                                 @can('course_edit')
                                     <a class="btn btn-xs btn-info" href="{{ route('admin.courses.edit', $course->id) }}">
