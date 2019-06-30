@@ -37,7 +37,7 @@
             </div>
             <div class="form-group {{ $errors->has('score') ? 'has-error' : '' }}">
                 <label for="score">{{ trans('cruds.question.fields.score') }}*</label>
-                <input type="number" id="score" name="score" class="form-control" value="{{ old('score', isset($question) ? $question->score : '') }}" step="1" required>
+                <input type="number" id="score" name="score" class="form-control" value="{{ old('score', isset($question) ? $question->score : '1') }}" step="1" required>
                 @if($errors->has('score'))
                     <p class="help-block">
                         {{ $errors->first('score') }}

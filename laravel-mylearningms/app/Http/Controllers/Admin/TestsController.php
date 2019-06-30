@@ -26,9 +26,12 @@ class TestsController extends Controller
     {
         abort_unless(\Gate::allows('test_create'), 403);
 
-        $courses = Course::all()->pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $courses = Course::ofTeacher()->get();
+        $course_ids = $courses->pluck('id');
 
-        $lessons = Lesson::all()->pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $courses = $courses->pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $lessons = Lesson::whereIn('course_id', $course_ids)->get()->pluck('title', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $questions = Question::all()->pluck('question', 'id');
 
