@@ -68,4 +68,12 @@ class Course extends Model implements HasMedia
         }
         return $query;
     }
+
+    public function lessons() {
+        return $this->hasMany(Lesson::class)->orderBy('position');
+    }
+
+    public function publishedLessons() {
+        return $this->hasMany(Lesson::class)->orderBy('position')->where('published', 1);
+    }
 }
