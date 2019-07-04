@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'HomeController@index');
+Route::get('course/{slug}', ['uses' => 'CoursesController@show', 'as' => 'courses.show']);
 
 Route::redirect('/home', '/admin');
 

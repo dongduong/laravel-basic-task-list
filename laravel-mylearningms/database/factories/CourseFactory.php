@@ -16,10 +16,12 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(Course::class, function (Faker $faker) {
+	$name = $faker->name;
     return [
-        'title' => $faker->name,
+        'title' => $name,
+        'slug' => str_slug($name),
         'description' => $faker->text(),
-        'price' => $faker->randomFloat(),
+        'price' => $faker->randomFloat(2, 0 , 199),
         'published' => 1,
     ];
 });

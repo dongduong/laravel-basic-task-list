@@ -1,5 +1,9 @@
-@extends('errors::minimal')
+@extends('layouts.home')
 
-@section('title', __('Not Found'))
-@section('code', '404')
-@section('message', __('Not Found'))
+@section('main')
+
+  <h2>Error</h2>
+
+  <p>Page not found. Please return to <a href="/">Homepage</a></p>
+
+@endsection
