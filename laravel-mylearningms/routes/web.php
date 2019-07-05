@@ -6,7 +6,7 @@ Route::get('lesson/{slug}', ['uses' => 'LessonsController@show', 'as' => 'lesson
 
 Route::redirect('/home', '/admin');
 
-Auth::routes(['register' => false]);
+Auth::routes();
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'DashboardController@index')->name('home');
