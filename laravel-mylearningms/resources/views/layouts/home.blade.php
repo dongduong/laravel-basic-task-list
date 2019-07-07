@@ -50,14 +50,14 @@
       		  <form action="{{ route('logout') }}" method="post">
       		  	{{ csrf_field() }}
       		  	Logged in as {{ Auth::user()->email }}
-      		  	<input type="submit" value="logout" class="btn btn-info">
+      		  	<input type="submit" value="Logout" class="btn btn-info">
       		  </form>
       		@else
       		  <form action="{{ route('login') }}" method="post">
       		  	{{ csrf_field() }}
       		  	<input type="email" name="email" placeholder="Email">
       		  	<input type="password" name="password" placeholder="Password">
-      		  	<input type="submit" value="login" class="btn btn-info">
+      		  	<input type="submit" value="Login" class="btn btn-info">
       		  </form>
       		@endif
       	</div>

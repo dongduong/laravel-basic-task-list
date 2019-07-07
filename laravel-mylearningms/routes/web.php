@@ -3,6 +3,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('course/{slug}', ['uses' => 'CoursesController@show', 'as' => 'courses.show']);
 Route::get('lesson/{slug}', ['uses' => 'LessonsController@show', 'as' => 'lessons.show']);
+Route::post('course/payment', ['uses' => 'CoursesController@payment', 'as' => 'courses.payment']);
 
 Route::redirect('/home', '/admin');
 
