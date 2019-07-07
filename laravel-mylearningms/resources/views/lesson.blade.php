@@ -14,7 +14,11 @@
 
   <h2>{{ $lesson->title }}</h2>
 
-  <p>{!! $lesson->full_text !!}</p>
+  @if (($lesson->course->students()->where('user_id', \Auth::id())->count() > 0) || ($lesson->free_lesson == 1) )
+  	<p>{!! $lesson->full_text !!}</p>
+  @else 
+  	Please <a href="{{ route('courses.show', [$lesson->course->slug]) }}"> go back </a> and buy the course.
+  @endif
 
   <hr>
 

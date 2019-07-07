@@ -8,6 +8,7 @@
 
   <p>
   	@if (\Auth::check())
+  	  @if ( $course->students()->where('user_id', \Auth::id())->count() == 0 )
   		<form action="{{ route('courses.payment') }}" method="post">
   			<input type="hidden" name="course_id" value="{{ $course->id }}">
   			<script 
@@ -24,6 +25,7 @@
   			</script>
   			{{ csrf_field() }}
   		</form>
+  	  @endif
   	@else
   		<a href="{{ route('register') }}?redirect_url={{ route('courses.show', [$course->slug]) }}" 
   	class="btn btn-primary">Buy course (${{ $course->price }})</a>
