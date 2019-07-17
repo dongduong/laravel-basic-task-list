@@ -20,6 +20,21 @@
   	Please <a href="{{ route('courses.show', [$lesson->course->slug]) }}"> go back </a> and buy the course.
   @endif
 
+  @if($lesson->test)
+     <hr/>
+     <form action="" method="post">
+     	<h3>Test: {{ $lesson->test->title }}</h3>
+     	@foreach ($lesson->test->questions as $question)
+     	  <b>{{  $loop->iteration }}. {{ $question->question }}</b>
+     	  <br/>
+     	  @foreach ($question->options as $option)
+     	  	<input type="radio" name="question_{{ $question->id }}"/> {{ $option->option_text }} <br/>
+     	  @endforeach
+     	  <br/>
+     	@endforeach
+     </form>
+  @endif
+
   <hr>
 
   @if ($previous_lesson)

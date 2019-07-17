@@ -53,4 +53,8 @@ class Lesson extends Model implements HasMedia
     {
         return $this->getMedia('downloadable_files');
     }
+
+    public function test() {
+        return $this->hasOne(Test::class);
+    }
 }

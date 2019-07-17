@@ -37,4 +37,14 @@ class Question extends Model implements HasMedia
 
         return $file;
     }
+
+    public function options()
+    {
+        return $this->hasMany(QuestionsOption::class);
+    }
+
+    public function tests()
+    {
+        return $this->belongsToMany(Test::class, 'question_test');
+    }
 }
