@@ -24,6 +24,9 @@ https://webkul.com/blog/laravel-ecommerce-website
 https://bagisto.com
 https://github.com/bagisto/bagisto
 
+- laravel-mylearningms
+https://www.youtube.com/watch?v=a0lNnV3DG1o
+
 
 ## How to run:
 
