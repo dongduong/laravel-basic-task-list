@@ -15,7 +15,7 @@ class UsersController extends Controller
     {
         abort_unless(\Gate::allows('user_access'), 403);
 
-        $users = User::all();
+        $users = \Auth::user()->isAdmin() ? User::all() : User::where('id', '<>' , 1)->get();
 
         return view('admin.users.index', compact('users'));
     }
@@ -24,7 +24,7 @@ class UsersController extends Controller
     {
         abort_unless(\Gate::allows('user_create'), 403);
 
-        $roles = Role::all()->pluck('title', 'id');
+        $roles = \Auth::user()->isAdmin() ? Role::all()->pluck('title', 'id') : Role::where('id', '<>', '1')->pluck('title', 'id');
 
         return view('admin.users.create', compact('roles'));
     }
@@ -43,7 +43,7 @@ class UsersController extends Controller
     {
         abort_unless(\Gate::allows('user_edit'), 403);
 
-        $roles = Role::all()->pluck('title', 'id');
+        $roles = \Auth::user()->isAdmin() ? Role::all()->pluck('title', 'id') : Role::where('id', '<>', '1')->pluck('title', 'id');
 
         $user->load('roles');
 
