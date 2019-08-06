@@ -127,6 +127,15 @@ return [
             'deleted_at_helper'  => '',
         ],
     ],
+    'findRoom'   => [
+        'title'          => 'Find Room',
+        'title_singular' => 'Find Room',
+        'fields'         => [
+            'time_from'     => 'Time From',
+            'time_to'       => 'Time To',
+            'search'        => 'Search'
+        ],
+    ],
     'guest'             => [
         'title'          => 'Guests',
         'title_singular' => 'Guest',

@@ -33,6 +33,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::resource('rooms', 'RoomController');
 
+    Route::get('find_rooms', 'FindRoomsController@index')->name('find-rooms.index');
+
+    Route::post('find_rooms', 'FindRoomsController@index');
+
     Route::delete('guests/destroy', 'GuestsController@massDestroy')->name('guests.massDestroy');
 
     Route::resource('guests', 'GuestsController');
