@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
             TaskStatusTableSeeder::class,
+            RoomTypesTableSeeder::class,
+            RoomStatusTableSeeder::class,
         ]);
     }
 }
