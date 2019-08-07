@@ -72,6 +72,7 @@
                         </ul>
                     </li>
                 @endcan
+                @can('find_room_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.find-rooms.index") }}" class="nav-link {{ request()->is('admin/find-rooms') || request()->is('admin/find-rooms/*') ? 'active' : '' }}">
                         <i class="fa-fw fas fa-search">
@@ -82,6 +83,7 @@
                         </p>
                     </a>
                 </li>
+                @endcan
                 @can('rooms_management_access')
                     <li class="nav-item has-treeview {{ request()->is('admin/room-types*') ? 'menu-open' : '' }} {{ request()->is('admin/room-statuses*') ? 'menu-open' : '' }} {{ request()->is('admin/rooms*') ? 'menu-open' : '' }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">

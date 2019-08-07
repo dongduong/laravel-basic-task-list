@@ -426,6 +426,12 @@ class PermissionsTableSeeder extends Seeder
                 'title'      => 'contact_contact_access',
                 'created_at' => '2019-07-31 17:35:02',
                 'updated_at' => '2019-07-31 17:35:02',
+            ],
+            [
+                'id'         => '71',
+                'title'      => 'find_room_access',
+                'created_at' => '2019-07-31 17:35:02',
+                'updated_at' => '2019-07-31 17:35:02',
             ]];
 
         Permission::insert($permissions);

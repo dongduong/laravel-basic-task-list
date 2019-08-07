@@ -11,7 +11,7 @@ class FindRoomsController extends Controller
 {
     public function index(Request $request)
     {
-        // abort_unless(\Gate::allows('find_room_access'), 403);
+        abort_unless(\Gate::allows('find_room_access'), 403);
         
         $time_from = $request->input('time_from');
         $time_to = $request->input('time_to');
