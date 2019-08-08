@@ -60,7 +60,7 @@
                             @can('room_status_access')
                                 <li class="nav-item">
                                     <a href="{{ route("admin.room-statuses.index") }}" class="nav-link {{ request()->is('admin/room-statuses') || request()->is('admin/room-statuses/*') ? 'active' : '' }}">
-                                        <i class="fa-fw fas fa-calendar-check">
+                                        <i class="fa-fw fas fa-bed">
 
                                         </i>
                                         <p>
@@ -84,28 +84,43 @@
                         </ul>
                     </li>
                 @endcan
-                @can('guest_access')
-                    <li class="nav-item">
-                        <a href="{{ route("admin.guests.index") }}" class="nav-link {{ request()->is('admin/guests') || request()->is('admin/guests/*') ? 'active' : '' }}">
-                            <i class="fa-fw fas fa-address-book">
+                @can('booking_management_access')
+                    <li class="nav-item has-treeview {{ request()->is('admin/guests*') ? 'menu-open' : '' }} {{ request()->is('admin/reservations*') ? 'menu-open' : '' }}">
+                        <a class="nav-link nav-dropdown-toggle" href="#">
+                            <i class="fa-fw fas fa-calendar-check">
 
                             </i>
                             <p>
-                                <span>{{ trans('cruds.guest.title') }}</span>
+                                <span>{{ trans('cruds.bookingManagement.title') }}</span>
+                                <i class="right fa fa-fw fa-angle-left"></i>
                             </p>
                         </a>
-                    </li>
-                @endcan
-                @can('reservation_access')
-                    <li class="nav-item">
-                        <a href="{{ route("admin.reservations.index") }}" class="nav-link {{ request()->is('admin/reservations') || request()->is('admin/reservations/*') ? 'active' : '' }}">
-                            <i class="fa-fw far fa-calendar-alt">
+                        <ul class="nav nav-treeview">
+                            @can('guest_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.guests.index") }}" class="nav-link {{ request()->is('admin/guests') || request()->is('admin/guests/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-address-book">
 
-                            </i>
-                            <p>
-                                <span>{{ trans('cruds.reservation.title') }}</span>
-                            </p>
-                        </a>
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.guest.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('reservation_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.reservations.index") }}" class="nav-link {{ request()->is('admin/reservations') || request()->is('admin/reservations/*') ? 'active' : '' }}">
+                                        <i class="fa-fw far fa-calendar-alt">
+
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.reservation.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
                     </li>
                 @endcan
                 @can('task_management_access')

@@ -432,6 +432,12 @@ class PermissionsTableSeeder extends Seeder
                 'title'      => 'find_room_access',
                 'created_at' => '2019-07-31 17:35:02',
                 'updated_at' => '2019-07-31 17:35:02',
+            ],
+            [
+                'id'         => '72',
+                'title'      => 'booking_management_access',
+                'created_at' => '2019-07-31 17:35:02',
+                'updated_at' => '2019-07-31 17:35:02',
             ]];
 
         Permission::insert($permissions);

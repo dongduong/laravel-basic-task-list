@@ -82,8 +82,8 @@ return [
         ],
     ],
     'roomsManagement'   => [
-        'title'          => 'Rooms Management',
-        'title_singular' => 'Rooms Management',
+        'title'          => 'Rooms management',
+        'title_singular' => 'Rooms management',
     ],
     'roomStatus'        => [
         'title'          => 'Room Statuses',
@@ -135,6 +135,10 @@ return [
             'time_to'       => 'Time To',
             'search'        => 'Search'
         ],
+    ],
+    'bookingManagement'   => [
+        'title'          => 'Booking management',
+        'title_singular' => 'Booking management',
     ],
     'guest'             => [
         'title'          => 'Guests',
