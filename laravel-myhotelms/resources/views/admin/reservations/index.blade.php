@@ -23,6 +23,9 @@
 
                         </th>
                         <th>
+                            {{ trans('cruds.reservation.fields.code') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.reservation.fields.guest') }}
                         </th>
                         <th>
@@ -65,6 +68,9 @@
                         <tr data-entry-id="{{ $reservation->id }}">
                             <td>
 
+                            </td>
+                            <td>
+                                {{ $reservation->guest->code ?? '' }}
                             </td>
                             <td>
                                 {{ $reservation->guest->last_name ?? '' }}

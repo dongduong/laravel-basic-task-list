@@ -170,6 +170,8 @@ return [
         'fields'         => [
             'id'                            => 'ID',
             'id_helper'                     => '',
+            'code'                          => 'Code',
+            'code_helper'                   => '',
             'guest'                         => 'Guest',
             'guest_helper'                  => '',
             'room'                          => 'Room',
