@@ -21,20 +21,8 @@
                         </p>
                     </a>
                 </li>
-                @can('find_room_access')
-                <li class="nav-item">
-                    <a href="{{ route("admin.find-rooms.index") }}" class="nav-link {{ request()->is('admin/find-rooms') || request()->is('admin/find-rooms/*') ? 'active' : '' }}">
-                        <i class="fa-fw fas fa-search">
-
-                        </i>
-                        <p>
-                            <span>{{ trans('cruds.findRoom.title') }}</span>
-                        </p>
-                    </a>
-                </li>
-                @endcan
                 @can('rooms_management_access')
-                    <li class="nav-item has-treeview {{ request()->is('admin/room-types*') ? 'menu-open' : '' }} {{ request()->is('admin/room-statuses*') ? 'menu-open' : '' }} {{ request()->is('admin/rooms*') ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ request()->is('admin/find_rooms*') ? 'menu-open' : '' }} {{ request()->is('admin/room-types*') ? 'menu-open' : '' }} {{ request()->is('admin/room-statuses*') ? 'menu-open' : '' }} {{ request()->is('admin/rooms*') ? 'menu-open' : '' }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw fas fa-hotel">
 
@@ -45,18 +33,18 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <!-- @can('find_room_access') -->
-                                <!-- <li class="nav-item">
-                                    <a href="{{ route("admin.find-rooms.index") }}" class="nav-link {{ request()->is('admin/find-rooms') || request()->is('admin/find-rooms/*') ? 'active' : '' }}">
-                                        <i class="fa-fw fas fa-door-open">
+                            @can('find_room_access')
+                            <li class="nav-item">
+                                <a href="{{ route("admin.find-rooms.index") }}" class="nav-link {{ request()->is('admin/find_rooms') || request()->is('admin/find_rooms/*') ? 'active' : '' }}">
+                                    <i class="fa-fw fas fa-search">
 
-                                        </i>
-                                        <p>
-                                            <span>{{ trans('cruds.findRoom.title') }}</span>
-                                        </p>
-                                    </a>
-                                </li> -->
-                            <!-- @endcan -->
+                                    </i>
+                                    <p>
+                                        <span>{{ trans('cruds.findRoom.title') }}</span>
+                                    </p>
+                                </a>
+                            </li>
+                            @endcan
                             @can('room_type_access')
                                 <li class="nav-item">
                                     <a href="{{ route("admin.room-types.index") }}" class="nav-link {{ request()->is('admin/room-types') || request()->is('admin/room-types/*') ? 'active' : '' }}">
