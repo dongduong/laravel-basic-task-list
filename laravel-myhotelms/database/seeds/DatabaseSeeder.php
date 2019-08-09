@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             TaskStatusTableSeeder::class,
             RoomTypesTableSeeder::class,
             RoomStatusTableSeeder::class,
+            ReservationStatusTableSeeder::class,
         ]);
     }
 }

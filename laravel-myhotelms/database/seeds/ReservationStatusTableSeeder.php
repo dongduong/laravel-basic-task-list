@@ -1,37 +1,67 @@
 <?php
 
-use App\RoomStatus;
+use App\ReservationStatus;
 use Illuminate\Database\Seeder;
 
-class RoomStatusTableSeeder extends Seeder
+class ReservationStatusTableSeeder extends Seeder
 {
     public function run()
     {
-        $roomStatuses = [[
-            'id'         => '1',
-            'name'       => 'Available',
-            'created_at' => '2019-07-31 17:32:06',
-            'updated_at' => '2019-07-31 17:32:06',
-        ],
+        $reservationStatuses = [[
+                'id'         => '1',
+                'name'       => 'On Request',
+                'created_at' => '2019-07-31 17:32:06',
+                'updated_at' => '2019-07-31 17:32:06',
+            ],
             [
                 'id'         => '2',
-                'name'       => 'Booking',
+                'name'       => 'Confirmed',
                 'created_at' => '2019-07-31 17:32:06',
                 'updated_at' => '2019-07-31 17:32:06',
             ],
             [
                 'id'         => '3',
-                'name'       => 'On Repair',
+                'name'       => 'Operational',
                 'created_at' => '2019-07-31 17:32:06',
                 'updated_at' => '2019-07-31 17:32:06',
             ],
             [
                 'id'         => '4',
-                'name'       => 'Unknown',
+                'name'       => 'Completed',
+                'created_at' => '2019-07-31 17:32:06',
+                'updated_at' => '2019-07-31 17:32:06',
+            ],
+            [
+                'id'         => '5',
+                'name'       => 'Cancelled',
+                'created_at' => '2019-07-31 17:32:06',
+                'updated_at' => '2019-07-31 17:32:06',
+            ],
+            [
+                'id'         => '6',
+                'name'       => 'Cancelled With Penalty',
+                'created_at' => '2019-07-31 17:32:06',
+                'updated_at' => '2019-07-31 17:32:06',
+            ],
+            [
+                'id'         => '7',
+                'name'       => 'No Show',
+                'created_at' => '2019-07-31 17:32:06',
+                'updated_at' => '2019-07-31 17:32:06',
+            ],
+            [
+                'id'         => '8',
+                'name'       => 'No Show With Penalty',
+                'created_at' => '2019-07-31 17:32:06',
+                'updated_at' => '2019-07-31 17:32:06',
+            ],
+            [
+                'id'         => '9',
+                'name'       => 'Unsuccessful',
                 'created_at' => '2019-07-31 17:32:06',
                 'updated_at' => '2019-07-31 17:32:06',
             ]];
 
-        RoomStatus::insert($roomStatuses);
+        ReservationStatus::insert($reservationStatuses);
     }
 }
