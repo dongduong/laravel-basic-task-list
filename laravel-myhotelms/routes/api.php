@@ -17,6 +17,8 @@ Route::group(['prefix' => 'v1', 'as' => 'admin.', 'namespace' => 'Api\V1\Admin']
 
     Route::apiResource('reservations', 'ReservationsApiController');
 
+    Route::apiResource('reservation-statuses', 'ReservationStatusesApiController');
+
     Route::apiResource('task-statuses', 'TaskStatusApiController');
 
     Route::apiResource('task-tags', 'TaskTagApiController');

@@ -438,6 +438,36 @@ class PermissionsTableSeeder extends Seeder
                 'title'      => 'booking_management_access',
                 'created_at' => '2019-07-31 17:35:02',
                 'updated_at' => '2019-07-31 17:35:02',
+            ],
+            [
+                'id'         => '73',
+                'title'      => 'reservation_status_create',
+                'created_at' => '2019-07-31 17:35:02',
+                'updated_at' => '2019-07-31 17:35:02',
+            ],
+            [
+                'id'         => '74',
+                'title'      => 'reservation_status_edit',
+                'created_at' => '2019-07-31 17:35:02',
+                'updated_at' => '2019-07-31 17:35:02',
+            ],
+            [
+                'id'         => '75',
+                'title'      => 'reservation_status_show',
+                'created_at' => '2019-07-31 17:35:02',
+                'updated_at' => '2019-07-31 17:35:02',
+            ],
+            [
+                'id'         => '76',
+                'title'      => 'reservation_status_delete',
+                'created_at' => '2019-07-31 17:35:02',
+                'updated_at' => '2019-07-31 17:35:02',
+            ],
+            [
+                'id'         => '77',
+                'title'      => 'reservation_status_access',
+                'created_at' => '2019-07-31 17:35:02',
+                'updated_at' => '2019-07-31 17:35:02',
             ]];
 
         Permission::insert($permissions);

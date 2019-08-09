@@ -120,6 +120,18 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('reservation_status_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.reservation-statuses.index") }}" class="nav-link {{ request()->is('admin/reservation-statuses') || request()->is('admin/reservation-statuses/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-bed">
+
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.reservationStatus.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 @endcan

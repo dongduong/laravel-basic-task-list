@@ -45,6 +45,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::resource('reservations', 'ReservationsController');
 
+    Route::delete('reservation-statuses/destroy', 'ReservationStatusesController@massDestroy')->name('reservation-statuses.massDestroy');
+
+    Route::resource('reservation-statuses', 'ReservationStatusesController');
+
     Route::delete('task-statuses/destroy', 'TaskStatusController@massDestroy')->name('task-statuses.massDestroy');
 
     Route::resource('task-statuses', 'TaskStatusController');
