@@ -123,7 +123,7 @@
                             @can('reservation_status_access')
                                 <li class="nav-item">
                                     <a href="{{ route("admin.reservation-statuses.index") }}" class="nav-link {{ request()->is('admin/reservation-statuses') || request()->is('admin/reservation-statuses/*') ? 'active' : '' }}">
-                                        <i class="fa-fw fas fa-bed">
+                                        <i class="fa-fw fas fa-unlock">
 
                                         </i>
                                         <p>

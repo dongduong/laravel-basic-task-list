@@ -198,6 +198,22 @@ return [
             'deleted_at_helper'             => '',
         ],
     ],
+    'reservationStatus'        => [
+        'title'          => 'Reservation Statuses',
+        'title_singular' => 'Reservation Status',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => '',
+            'name'              => 'Name',
+            'name_helper'       => '',
+            'created_at'        => 'Created at',
+            'created_at_helper' => '',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => '',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => '',
+        ],
+    ],
     'taskManagement'    => [
         'title'          => 'Task management',
         'title_singular' => 'Task management',
