@@ -100,7 +100,7 @@ class RoomsTableSeeder extends Seeder
                 'room_number'       => 'R303',
                 'floor'             => '3',
                 'slug'              => 'r303',
-                'description'       => 'Room 2303',
+                'description'       => 'Room 303',
                 'room_type_id'      => '4',
                 'room_status_id'    => '3',
                 'created_at' => '2019-07-31 17:32:06',

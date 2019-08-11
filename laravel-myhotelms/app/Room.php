@@ -38,4 +38,9 @@ class Room extends Model
     {
         return $this->belongsTo(RoomStatus::class, 'room_status_id');
     }
+
+    public function booking()
+    {
+        return $this->HasOne(Reservation::class, 'room_id')->withTrashed();
+    }
 }

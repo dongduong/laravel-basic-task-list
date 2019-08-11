@@ -19,8 +19,8 @@ class FindRoomsController extends Controller
         if ($request->isMethod('POST')) {
             $rooms = Room::with('booking')->whereHas('booking', function ($q) use ($time_from, $time_to) {
                 $q->where(function ($q2) use ($time_from, $time_to) {
-                    $q2->where('time_from', '>=', $time_to)
-                       ->orWhere('time_to', '<=', $time_from);
+                    $q2->where('check_in_date', '>=', $time_to)
+                       ->orWhere('check_out_date', '<=', $time_from);
                 });
             })->orWhereDoesntHave('booking')->get();
         } else {

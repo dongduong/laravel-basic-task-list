@@ -130,10 +130,14 @@ return [
     'findRoom'   => [
         'title'          => 'Find Room',
         'title_singular' => 'Find Room',
+        'book_room'      => 'Book Room',
         'fields'         => [
             'time_from'     => 'Time From',
             'time_to'       => 'Time To',
-            'search'        => 'Search'
+            'search'        => 'Search',
+            'room-number'   => 'Room Number',
+            'floor'         => 'Floor',
+            'description'   => 'Description'
         ],
     ],
     'bookingManagement'   => [
