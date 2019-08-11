@@ -44,6 +44,7 @@
                     <th/></th>
                     <th>@lang('cruds.findRoom.fields.room-number')</th>
                     <th>@lang('cruds.findRoom.fields.floor')</th>
+                    <th>@lang('cruds.findRoom.fields.type')</th>
                     <th>@lang('cruds.findRoom.fields.description')</th>
                 </tr>
                 </thead>
@@ -53,6 +54,7 @@
                             <td></td>
                             <td field-key='room_number'>{{ $room->room_number }}</td>
                             <td field-key='floor'>{{ $room->floor }}</td>
+                            <td field-key='type'>{{ $room->room_type->name }}</td>
                             <td field-key='description'>{!! $room->description !!}</td>
                             <td>
                                 @can('reservation_create')

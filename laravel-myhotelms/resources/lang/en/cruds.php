@@ -137,6 +137,7 @@ return [
             'search'        => 'Search',
             'room-number'   => 'Room Number',
             'floor'         => 'Floor',
+            'type'          => 'Type',
             'description'   => 'Description'
         ],
     ],
