@@ -85,7 +85,7 @@
                     </li>
                 @endcan
                 @can('booking_management_access')
-                    <li class="nav-item has-treeview {{ request()->is('admin/guests*') ? 'menu-open' : '' }} {{ request()->is('admin/reservations*') ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ request()->is('admin/guests*') ? 'menu-open' : '' }} {{ request()->is('admin/reservations*') ? 'menu-open' : '' }} {{ request()->is('admin/reservation-statuses*') ? 'menu-open' : '' }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">
                             <i class="fa-fw fas fa-calendar-check">
 
