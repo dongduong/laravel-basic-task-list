@@ -70,7 +70,7 @@
 
                             </td>
                             <td>
-                                {{ $reservation->guest->code ?? '' }}
+                                {{ $reservation->code ?? '' }}
                             </td>
                             <td>
                                 {{ $reservation->guest->last_name ?? '' }}

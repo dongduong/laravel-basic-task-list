@@ -21,6 +21,7 @@ class Reservation extends Model
     ];
 
     protected $fillable = [
+        'code',
         'adults',
         'room_id',
         'guest_id',

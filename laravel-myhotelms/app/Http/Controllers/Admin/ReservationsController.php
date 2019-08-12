@@ -36,6 +36,8 @@ class ReservationsController extends Controller
     {
         abort_unless(\Gate::allows('reservation_create'), 403);
 
+        $request->request->add(['code' => $this->generateCode()]); //add request
+
         $reservation = Reservation::create($request->all());
 
         return redirect()->route('admin.reservations.index');
@@ -86,5 +88,13 @@ class ReservationsController extends Controller
         Reservation::whereIn('id', request('ids'))->delete();
 
         return response(null, 204);
+    }
+
+    public function generateCode() {
+        if (Reservation::orderBy('id','DESC')->take(1)->first()) {
+            return "RESER" . (Reservation::orderBy('id','DESC')->take(1)->first()->id + 1);
+        } else {
+            return "RESER1";
+        }
     }
 }
