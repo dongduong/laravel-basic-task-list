@@ -92,9 +92,9 @@ class ReservationsController extends Controller
 
     public function generateCode() {
         if (Reservation::orderBy('id','DESC')->take(1)->first()) {
-            return "RESER" . (Reservation::orderBy('id','DESC')->take(1)->first()->id + 1);
+            return "RESER" . now()->year . sprintf('%04d', (Reservation::orderBy('id','DESC')->take(1)->first()->id + 1));
         } else {
-            return "RESER1";
+            return "RESER". now()->year . "0001";
         }
     }
 }
