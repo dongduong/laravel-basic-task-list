@@ -181,6 +181,8 @@ return [
             'id_helper'                     => '',
             'code'                          => 'Code',
             'code_helper'                   => '',
+            'status'                        => 'Status',
+            'status_helper'                 => '',
             'guest'                         => 'Guest',
             'guest_helper'                  => '',
             'room'                          => 'Room',

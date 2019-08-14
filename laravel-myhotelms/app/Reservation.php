@@ -32,6 +32,7 @@ class Reservation extends Model
         'check_in_date',
         'check_out_date',
         'additional_information',
+        'reservation_status_id',
     ];
 
     public function guest()
@@ -42,6 +43,11 @@ class Reservation extends Model
     public function room()
     {
         return $this->belongsTo(Room::class, 'room_id');
+    }
+
+    public function reservation_status()
+    {
+        return $this->belongsTo(ReservationStatus::class, 'reservation_status_id');
     }
 
     public function getCheckInDateAttribute($value)

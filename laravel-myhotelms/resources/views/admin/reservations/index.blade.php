@@ -26,10 +26,10 @@
                             {{ trans('cruds.reservation.fields.code') }}
                         </th>
                         <th>
-                            {{ trans('cruds.reservation.fields.guest') }}
+                            {{ trans('cruds.reservation.fields.status') }}
                         </th>
                         <th>
-                            {{ trans('cruds.guest.fields.first_name') }}
+                            {{ trans('cruds.reservation.fields.guest') }}
                         </th>
                         <th>
                             {{ trans('cruds.guest.fields.address') }}
@@ -73,10 +73,10 @@
                                 {{ $reservation->code ?? '' }}
                             </td>
                             <td>
-                                {{ $reservation->guest->last_name ?? '' }}
+                                {{ $reservation->reservation_status->name ?? '' }}
                             </td>
                             <td>
-                                {{ $reservation->guest->first_name ?? '' }}
+                                {{ $reservation->guest->fullName() ?? '' }}
                             </td>
                             <td>
                                 {{ $reservation->guest->address ?? '' }}

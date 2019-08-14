@@ -9,7 +9,7 @@ class StoreReservationService
 {
     public function perform(StoreReservationRequest $request)
     {
-        $request->request->add(['code' => $this->generateCode()]); 
+        $request->request->add(['code' => $this->generateCode(), 'reservation_status_id' => 1]); 
 
         $reservation = Reservation::create($request->all());
 
