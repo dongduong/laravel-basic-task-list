@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyReservationRequest;
 use App\Http\Requests\StoreReservationRequest;
 use App\Http\Requests\UpdateReservationRequest;
+use App\Services\StoreReservationService;
 use App\Reservation;
 use App\Room;
 
@@ -36,9 +37,9 @@ class ReservationsController extends Controller
     {
         abort_unless(\Gate::allows('reservation_create'), 403);
 
-        $request->request->add(['code' => $this->generateCode()]); //add request
+        $service = new StoreReservationService();
 
-        $reservation = Reservation::create($request->all());
+        $reservation = $service->perform($request);
 
         return redirect()->route('admin.reservations.index');
     }
@@ -88,13 +89,5 @@ class ReservationsController extends Controller
         Reservation::whereIn('id', request('ids'))->delete();
 
         return response(null, 204);
-    }
-
-    public function generateCode() {
-        if (Reservation::orderBy('id','DESC')->take(1)->first()) {
-            return "RESER" . now()->year . sprintf('%04d', (Reservation::orderBy('id','DESC')->take(1)->first()->id + 1));
-        } else {
-            return "RESER". now()->year . "0001";
-        }
     }
 }
