@@ -1,7 +1,11 @@
 <?php
 
-Route::redirect('/', '/login');
-
+Route::get('/', 'HomeController@index');
+Route::get('rooms', ['uses' => 'RoomsController@index', 'as' => 'rooms.index']);
+Route::get('services', ['uses' => 'ServicesController@index', 'as' => 'services.index']);
+Route::get('about', ['uses' => 'AboutController@index', 'as' => 'about.index']);
+Route::get('blog', ['uses' => 'BlogController@index', 'as' => 'blog.index']);
+Route::get('contact', ['uses' => 'ContactController@index', 'as' => 'contact.index']);
 Route::redirect('/home', '/admin');
 
 Auth::routes(['register' => false]);

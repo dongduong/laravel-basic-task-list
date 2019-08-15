@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-class HomeController extends Controller
+class RoomsController extends Controller
 {
     /**
-     * Show home page index.
+     * Show rooms page index.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-        return view('index');
+        return view('rooms');
     }
 }
