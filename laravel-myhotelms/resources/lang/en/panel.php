@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'MyHotelManagement',
+    'site_title' => 'Bright Hotel Management',
 ];
