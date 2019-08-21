@@ -74,7 +74,7 @@
                         <td field-key='type'>{{ $room->room_type->name }}</td>
                         <td field-key='description'>{!! $room->description !!}</td>
                         <td>
-                            <a href="{{ route('admin.reservations.create',
+                            <a href="{{ route('book-rooms.index',
                             ['room_id' => $room->id,'check_in_date' => $time_from, 'check_out_date' => $time_to]) }}">
                                 {!!trans('cruds.findRoom.book_room')!!}</a>
                         </td>
