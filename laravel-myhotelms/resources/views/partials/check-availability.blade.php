@@ -44,7 +44,7 @@
       </div>
     </div>
     <div class="col-md-6 col-lg-3 align-self-end">
-      <button class="btn btn-primary btn-block" type="submit" value="{{ trans('cruds.findRoom.fields.search') }}">Check Availabilty</button>
+      <button class="btn btn-primary  " type="submit" value="{{ trans('cruds.findRoom.fields.search') }}">Check Availabilty</button>
     </div>
   </div>
 
@@ -74,11 +74,9 @@
                         <td field-key='type'>{{ $room->room_type->name }}</td>
                         <td field-key='description'>{!! $room->description !!}</td>
                         <td>
-                            <button class="btn btn-danger">
-                                <a href="{{ route('admin.reservations.create',
-                                ['room_id' => $room->id,'check_in_date' => $time_from, 'check_out_date' => $time_to]) }}">
-                                    {!!trans('cruds.findRoom.book_room')!!}</a>
-                            </button>
+                            <a href="{{ route('admin.reservations.create',
+                            ['room_id' => $room->id,'check_in_date' => $time_from, 'check_out_date' => $time_to]) }}">
+                                {!!trans('cruds.findRoom.book_room')!!}</a>
                         </td>
                     </tr>
                 @endforeach
