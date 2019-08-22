@@ -11,8 +11,10 @@ use App\Http\Controllers\Controller;
 class BookRoomsController extends Controller
 {
     public function index(Request $request)
-    {
-        $rooms = RoomType::all()->pluck('name', 'id');
-        return view('book-rooms', compact('rooms'));
+    {   
+        $rooms = Room::all()->pluck('room_number', 'id');
+
+        $room = Room::find($request->input('room_id'));
+        return view('book-rooms', compact('rooms', 'room'));
     }
 }
