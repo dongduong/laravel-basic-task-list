@@ -72,12 +72,16 @@
           <div class="form-group">
             <label for="room">Room</label>
             <div class="form-field">
-              <select name="room" id="room" class="form-control">
-                <option value="">Select a Room</option>
-                <option value="1">Classic Room</option>
-                <option value="2">Ultra Superior Room</option>
-                <option value="3">Grand Deluxe Room</option>
+              <select name="room_id" id="room" class="form-control select2" required>
+                  @foreach($rooms as $id => $room)
+                      <option value="{{ $id }}">{{ $room }}</option>
+                  @endforeach
               </select>
+              @if($errors->has('room_id'))
+                  <p class="help-block">
+                      {{ $errors->first('room_id') }}
+                  </p>
+              @endif
             </div>
           </div>
           <div class="row">
