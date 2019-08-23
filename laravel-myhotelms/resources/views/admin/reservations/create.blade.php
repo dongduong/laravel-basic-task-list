@@ -26,7 +26,7 @@
                 <label for="room">{{ trans('cruds.reservation.fields.room') }}*</label>
                 <select name="room_id" id="room" class="form-control select2" required>
                     @foreach($rooms as $id => $room)
-                        <option value="{{ $id }}" {{ (isset($reservation) && $reservation->room ? $reservation->room->id : old('room_id')) == $id ? 'selected' : '' }}>{{ $room }}</option>
+                        <option value="{{ $id }}" {{ (!is_null(Request::get('room_id')) && Request::get('room_id') == $id) ? 'selected' : '' }}>{{ $room }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('room_id'))
@@ -37,7 +37,7 @@
             </div>
             <div class="form-group {{ $errors->has('check_in_date') ? 'has-error' : '' }}">
                 <label for="check_in_date">{{ trans('cruds.reservation.fields.check_in_date') }}*</label>
-                <input type="text" id="check_in_date" name="check_in_date" class="form-control date" value="{{ old('check_in_date', isset($reservation) ? $reservation->check_in_date : '') }}" required>
+                <input type="text" id="check_in_date" name="check_in_date" class="form-control date" value="{{ !is_null(Request::get('check_in_date')) ? Request::get('check_in_date') : '' }}" required>
                 @if($errors->has('check_in_date'))
                     <p class="help-block">
                         {{ $errors->first('check_in_date') }}
@@ -49,7 +49,7 @@
             </div>
             <div class="form-group {{ $errors->has('check_out_date') ? 'has-error' : '' }}">
                 <label for="check_out_date">{{ trans('cruds.reservation.fields.check_out_date') }}*</label>
-                <input type="text" id="check_out_date" name="check_out_date" class="form-control date" value="{{ old('check_out_date', isset($reservation) ? $reservation->check_out_date : '') }}" required>
+                <input type="text" id="check_out_date" name="check_out_date" class="form-control date" value="{{ !is_null(Request::get('check_out_date')) ? Request::get('check_out_date') : '' }}" required>
                 @if($errors->has('check_out_date'))
                     <p class="help-block">
                         {{ $errors->first('check_out_date') }}
