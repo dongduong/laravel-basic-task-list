@@ -1,4 +1,4 @@
-<form action="{{ route("find-rooms.index") }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route("find-rooms.find") }}" method="POST" enctype="multipart/form-data">
   @csrf
   <div class="row">
     <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
@@ -47,6 +47,16 @@
       <button class="btn btn-primary  " type="submit" value="{{ trans('cruds.findRoom.fields.search') }}">Check Availabilty</button>
     </div>
   </div>
+
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
 
   @if (isset($rooms) && is_null($rooms))
     <div class="form-group" style="text-align: center">

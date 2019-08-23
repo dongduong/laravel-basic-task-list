@@ -7,7 +7,7 @@ Route::get('about', ['uses' => 'AboutController@index', 'as' => 'about.index']);
 Route::get('blog', ['uses' => 'BlogController@index', 'as' => 'blog.index']);
 Route::get('contact', ['uses' => 'ContactController@index', 'as' => 'contact.index']);
 Route::get('find_rooms', ['uses' => 'FindRoomsController@index', 'as' => 'find-rooms.index']);
-Route::post('find_rooms', 'FindRoomsController@index');
+Route::post('find_rooms', ['uses' => 'FindRoomsController@find', 'as' => 'find-rooms.find']);
 Route::get('book_rooms', ['uses' => 'BookRoomsController@index', 'as' => 'book-rooms.index']);
 Route::redirect('/home', '/admin');
 
