@@ -7,6 +7,8 @@ use App\RoomType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
+use App\Services\StoreGuestReservationService;
+use App\Http\Requests\StoreGuestReservationRequest;
 
 class BookRoomsController extends Controller
 {
@@ -16,5 +18,14 @@ class BookRoomsController extends Controller
 
         $room = Room::find($request->input('room_id'));
         return view('book-rooms', compact('rooms', 'room'));
+    }
+
+    public function store(StoreGuestReservationRequest $request)
+    {
+        $service = new StoreGuestReservationService();
+
+        $reservation = $service->performStore($request);
+
+        return view('index');
     }
 }

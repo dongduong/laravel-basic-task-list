@@ -9,6 +9,7 @@ Route::get('contact', ['uses' => 'ContactController@index', 'as' => 'contact.ind
 Route::get('find_rooms', ['uses' => 'FindRoomsController@index', 'as' => 'find-rooms.index']);
 Route::post('find_rooms', ['uses' => 'FindRoomsController@find', 'as' => 'find-rooms.find']);
 Route::get('book_rooms', ['uses' => 'BookRoomsController@index', 'as' => 'book-rooms.index']);
+Route::post('book_rooms', ['uses' => 'BookRoomsController@store', 'as' => 'book-rooms.store']);
 Route::redirect('/home', '/admin');
 
 Auth::routes(['register' => false]);

@@ -14,22 +14,33 @@
     </div>
   </div>
 
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
+
   <div class="container">
     <div class="row mb-5">
       <div class="col-md-8">
         <h2 class="mt0">Reservation Form</h2>
-        <form action="#" method="post" class="probootstrap-form">
+        <form action="{{ route('book-rooms.store') }}" method="POST" enctype="multipart/form-data">
+          @csrf
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="fname">First Name</label>
-                <input type="text" class="form-control" id="fname" name="fname">
+                <label for="first_name">First Name</label>
+                <input type="text" class="form-control" id="first_name" name="first_name">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="lname">Last Name</label>
-                <input type="text" class="form-control" id="lname" name="lname">
+                <label for="last_name">Last Name</label>
+                <input type="text" class="form-control" id="last_name" name="last_name">
               </div>
             </div>
           </div>
@@ -150,4 +161,6 @@
     </div>
   </div>
 
+@endsection
+@section('scripts')
 @endsection
