@@ -26,11 +26,11 @@ class FindRoomsController extends Controller
 
         $rooms = Room::with('booking')->whereHas('booking', function ($q) use ($time_from, $time_to) {
             $q->where(function ($q2) use ($time_from, $time_to) {
-                $q2->where('check_in_date', '>=', $time_to)
-                   ->orWhere('check_out_date', '<=', $time_from);
+                $q2->where('check_in_date', '>=', date('Y-m-d', strtotime($time_to)))
+                   ->orWhere('check_out_date', '<=', date('Y-m-d', strtotime($time_from)));
             });
         })->orWhereDoesntHave('booking')->get();
-        
+
         return view('find-rooms', compact('rooms', 'time_from', 'time_to'));
     }
 }

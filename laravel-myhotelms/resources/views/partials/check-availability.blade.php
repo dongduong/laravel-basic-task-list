@@ -5,14 +5,14 @@
       <label for="time_from">Check In</label>
       <div class="field-icon-wrap">
         <div class="icon"><span class="icon-calendar"></span></div>
-        <input type="text" id="checkin_date" name="checkin_date" class="form-control datetimepicker" value="{{ (isset($time_from) && !is_null($time_from)) ? $time_from : '' }}" placeholder="" required>
+        <input type="text" id="checkin_date" name="checkin_date" class="form-control" value="{{ (isset($time_from) && !is_null($time_from)) ? $time_from : '' }}" placeholder="" required>
       </div>
     </div>
     <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
       <label for="time_to">Check Out</label>
       <div class="field-icon-wrap">
         <div class="icon"><span class="icon-calendar"></span></div>
-        <input type="text" id="checkout_date" name="checkout_date" class="form-control datetimepicker" value="{{ (isset($time_to) && !is_null($time_to)) ? $time_to : '' }}" placeholder="" required>
+        <input type="text" id="checkout_date" name="checkout_date" class="form-control" value="{{ (isset($time_to) && !is_null($time_to)) ? $time_to : '' }}" placeholder="" required>
       </div>
     </div>
     <!-- <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
@@ -97,9 +97,4 @@
 </form>
 @section('scripts')
 @parent
-    <script>
-        $('.datetimepicker').datetimepicker({
-            format: "YYYY-MM-DD"
-        });
-    </script>
 @endsection

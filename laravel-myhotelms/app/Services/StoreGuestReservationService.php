@@ -16,8 +16,8 @@ class StoreGuestReservationService extends StoreReservationService
         $reservation = Reservation::create([
             'guest_id' => $guest_id,
             'room_id' => $request->input('room_id'),
-            'check_in_date' => "20-09-2019",
-            'check_out_date' => "22-09-2019",
+            'check_in_date' => $request->input('checkin_date'),
+            'check_out_date' => $request->input('checkout_date'),
             'adults' => $request->input('adults'),
             'children' => $request->input('children'),
             //'additional_information' => $request->input('additional_information'),

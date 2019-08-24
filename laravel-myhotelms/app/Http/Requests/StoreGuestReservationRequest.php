@@ -40,11 +40,11 @@ class StoreGuestReservationRequest extends FormRequest
             ],
             'checkin_date'          => [
                 'required',
-                'date_format:Y-m-d',
+                'date_format:' . config('panel.date_format'),
             ],
             'checkout_date'         => [
                 'required',
-                'date_format:Y-m-d',
+                'date_format:' . config('panel.date_format'),
             ],
             'adults'                 => [
                 'digits_between:0,10',

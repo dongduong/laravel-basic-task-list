@@ -11,11 +11,11 @@ class FindRoomRequest extends FormRequest
         return [
             'checkin_date'          => [
                 'required',
-                'date_format:Y-m-d',
+                'date_format:' . config('panel.date_format'),
             ],
             'checkout_date'         => [
                 'required',
-                'date_format:Y-m-d',
+                'date_format:' . config('panel.date_format'),
             ],
         ];
     }

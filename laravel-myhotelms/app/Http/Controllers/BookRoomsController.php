@@ -26,6 +26,6 @@ class BookRoomsController extends Controller
 
         $reservation = $service->performStore($request);
 
-        return view('index');
+        return redirect('/');
     }
 }

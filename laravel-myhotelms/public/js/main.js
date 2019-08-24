@@ -262,7 +262,7 @@ $(document).ready(function($) {
   });
 
   $('#checkin_date, #checkout_date').datepicker({
-	  'format': 'yyyy-mm-dd',
+	  'format': 'dd-mm-yyyy',
 	  'autoclose': true
 	});
 
