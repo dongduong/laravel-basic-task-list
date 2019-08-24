@@ -85,6 +85,7 @@
             <div class="form-field">
               @if(isset($room) && !is_null($room))
                 <b>{{ $room->room_number }} - {{ $room->room_type->name }}</b>
+                <input type="hidden" name="room_id" value="{{ $room->id }}">
               @else
               <select name="room_id" id="room" class="form-control select2" required>
                   @foreach($rooms as $id => $r)
@@ -105,6 +106,7 @@
                 <div class="icon"><span class="icon-calendar"></span> <label for="date-arrival">Arrival</label></div>
                 @if( !is_null(Request::get('check_in_date')) )
                   <b>{{ Request::get('check_in_date') }}</b>
+                  <input type="hidden" name="checkin_date" value="{{ Request::get('check_in_date') }}">
                 @else
                   <input type="text" id="checkin_date" name="checkin_date" class="form-control datetimepicker" placeholder="" required>
                 @endif
@@ -115,6 +117,7 @@
                 <div class="icon"><span class="icon-calendar"></span> <label for="date-departure">Departure</label></div>
                 @if( !is_null(Request::get('check_out_date')) )
                   <b>{{ Request::get('check_out_date') }}</b>
+                  <input type="hidden" name="checkout_date" value="{{ Request::get('check_out_date') }}">
                 @else
                   <input type="text" id="checkout_date" name="checkout_date" class="form-control datetimepicker" placeholder="" required>
                 @endif
