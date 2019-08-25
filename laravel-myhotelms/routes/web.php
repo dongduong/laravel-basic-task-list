@@ -10,6 +10,7 @@ Route::get('find_rooms', ['uses' => 'FindRoomsController@index', 'as' => 'find-r
 Route::post('find_rooms', ['uses' => 'FindRoomsController@find', 'as' => 'find-rooms.find']);
 Route::get('book_rooms', ['uses' => 'BookRoomsController@index', 'as' => 'book-rooms.index']);
 Route::post('book_rooms', ['uses' => 'BookRoomsController@store', 'as' => 'book-rooms.store']);
+Route::get('book_success', ['uses' => 'BookRoomsController@success', 'as' => 'book-rooms.success']);
 Route::redirect('/home', '/admin');
 
 Auth::routes(['register' => false]);
