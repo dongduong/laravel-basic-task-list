@@ -4,12 +4,13 @@ namespace App\Services;
 
 use App\Reservation;
 use App\Http\Requests\StoreReservationRequest;
+use Illuminate\Support\Str;
 
 class StoreReservationService
 {
     public function perform(StoreReservationRequest $request)
     {
-        $request->request->add(['code' => $this->generateCode(), 'reservation_status_id' => 1]); 
+        $request->request->add(['code' => $this->generateCode(), 'reservation_status_id' => 1, 'token' => $this->generateToken()]); 
 
         $reservation = Reservation::create($request->all());
 
@@ -22,5 +23,9 @@ class StoreReservationService
         } else {
             return "RESER". now()->year . "0001";
         }
+    }
+
+    public function generateToken() {
+        return (string) Str::uuid();
     }
 }

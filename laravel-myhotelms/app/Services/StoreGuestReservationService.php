@@ -11,7 +11,6 @@ class StoreGuestReservationService extends StoreReservationService
     public function performStore(StoreGuestReservationRequest $request)
     {
         $guest_id = $this->createGuest($request);
-        $request->request->add(['code' => $this->generateCode(), 'reservation_status_id' => 1]); 
 
         $reservation = Reservation::create([
             'guest_id' => $guest_id,
@@ -22,7 +21,8 @@ class StoreGuestReservationService extends StoreReservationService
             'children' => $request->input('children'),
             //'additional_information' => $request->input('additional_information'),
             'code' => $this->generateCode(),
-            'reservation_status_id' => 1
+            'reservation_status_id' => 1,
+            'token' => $this->generateToken()
         ]);
 
         return $reservation;

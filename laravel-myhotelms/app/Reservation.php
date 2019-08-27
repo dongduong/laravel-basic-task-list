@@ -33,6 +33,7 @@ class Reservation extends Model
         'check_out_date',
         'additional_information',
         'reservation_status_id',
+        'token'
     ];
 
     public function guest()

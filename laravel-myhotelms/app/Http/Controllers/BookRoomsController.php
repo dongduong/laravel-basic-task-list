@@ -27,13 +27,13 @@ class BookRoomsController extends Controller
 
         $reservation = $service->performStore($request);
 
-        return redirect()->route('book-rooms.success', ['reservation_id' => $reservation->id]);
+        return redirect()->route('book-rooms.success', ['token' => $reservation->token]);
     }
 
     public function success(Request $request)
     {
-        if($request->input('reservation_id')) {
-            $reservation = Reservation::find($request->input('reservation_id'));
+        if($request->input('token')) {
+            $reservation = Reservation::where('token', $request->input('token'))->first();
             return view('book-success', compact('reservation'));
         }
         else {
