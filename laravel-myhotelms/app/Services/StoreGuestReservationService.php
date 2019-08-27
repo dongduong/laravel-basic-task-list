@@ -5,11 +5,16 @@ namespace App\Services;
 use App\Guest;
 use App\Reservation;
 use App\Http\Requests\StoreGuestReservationRequest;
+use App\Rules\RoomAvailable;
 
 class StoreGuestReservationService extends StoreReservationService
 {
     public function performStore(StoreGuestReservationRequest $request)
     {
+        $request->validate([
+            'room_id' => [new RoomAvailable($request->input('checkin_date'), $request->input('checkout_date'))],
+        ]);
+
         $guest_id = $this->createGuest($request);
 
         $reservation = Reservation::create([
