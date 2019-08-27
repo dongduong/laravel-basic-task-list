@@ -58,12 +58,12 @@
     </div>
   @endif
 
-  @if (isset($rooms) && is_null($rooms))
-    <div class="form-group" style="text-align: center">
+  @if (isset($rooms) && (is_null($rooms) || $rooms->count() == 0 ))
+    <div class="alert alert-info">
         <label>@lang('cruds.findRoom.no_rooms_found')</label>
     </div>
   @endif
-  @if (isset($rooms) && !is_null($rooms))
+  @if (isset($rooms) && !is_null($rooms) && $rooms->count() != 0)
       <div class="panel-body table-responsive">
         <table class="table table-bordered table-striped">
             <thead>

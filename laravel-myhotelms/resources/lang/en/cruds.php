@@ -131,6 +131,7 @@ return [
         'title'          => 'Find Room',
         'title_singular' => 'Find Room',
         'book_room'      => 'Book Room',
+        'no_rooms_found' => 'Room is full',
         'fields'         => [
             'time_from'     => 'Time From',
             'time_to'       => 'Time To',
