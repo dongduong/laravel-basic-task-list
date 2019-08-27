@@ -160,7 +160,7 @@
       <div class="col-md-12">
         <div class="block-32">
            <h5><i>Thank you !</i></h5>
-           <p><i>An email was sent to <b>{{ $reservation->guest->email }}</b> within information about this reservation. We will contact and confirm with you as soon as posible.</i></p>
+           <p><i>An email was sent to <b>{{ $reservation->guest->email }}</b> about this reservation. We will contact and confirm with you as soon as posible.</i></p>
            <p><i>If you have any questions, please call to 084 8888 4444.</i></p>
            <a href="/"><< Home</a>
         </div>
