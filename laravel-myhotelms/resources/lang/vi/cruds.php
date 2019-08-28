@@ -2,8 +2,8 @@
 
 return [
     'userManagement'    => [
-        'title'          => 'User management',
-        'title_singular' => 'User management',
+        'title'          => 'Quản Lý User',
+        'title_singular' => 'Quản Lý User',
     ],
     'permission'        => [
         'title'          => 'Permissions',
@@ -45,15 +45,15 @@ return [
         'fields'         => [
             'id'                       => 'ID',
             'id_helper'                => '',
-            'name'                     => 'Name',
+            'name'                     => 'Tên',
             'name_helper'              => '',
             'email'                    => 'Email',
             'email_helper'             => '',
-            'email_verified_at'        => 'Email verified at',
+            'email_verified_at'        => 'Email Xác Nhận Lúc',
             'email_verified_at_helper' => '',
-            'password'                 => 'Password',
+            'password'                 => 'Mật Khẩu',
             'password_helper'          => '',
-            'roles'                    => 'Roles',
+            'roles'                    => 'Vai Trò',
             'roles_helper'             => '',
             'remember_token'           => 'Remember Token',
             'remember_token_helper'    => '',
