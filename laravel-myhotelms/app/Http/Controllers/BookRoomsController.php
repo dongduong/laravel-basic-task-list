@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Services\StoreGuestReservationService;
 use App\Http\Requests\StoreGuestReservationRequest;
+use App\Events\RoomReserved;
 
 class BookRoomsController extends Controller
 {
@@ -26,6 +27,10 @@ class BookRoomsController extends Controller
         $service = new StoreGuestReservationService();
 
         $reservation = $service->performStore($request);
+
+        if ($reservation) {
+            event(new RoomReserved($reservation));
+        }
 
         return redirect()->route('book-rooms.success', ['token' => $reservation->token]);
     }
