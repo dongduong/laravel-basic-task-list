@@ -3,7 +3,9 @@
 namespace App\Listeners;
 
 use App\Events\RoomReserved;
+use App\Mail\RoomReservationEmail;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Mail;
 
 class SendReservationNotification implements ShouldQueue
 {
@@ -25,7 +27,13 @@ class SendReservationNotification implements ShouldQueue
      */
     public function handle(RoomReserved $event)
     {
-        // Access the order using $event->order...
+        try {
+            $mail = new RoomReservationEmail();
+            $mail->reservation = $event->reservation;
+            Mail::send($mail);
+        } catch (\Exception $e) {
+
+        }
     }
 
     /**
