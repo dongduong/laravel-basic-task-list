@@ -73,7 +73,7 @@
                                 {{ $reservation->code ?? '' }}
                             </td>
                             <td>
-                                {{ $reservation->reservation_status->name ?? '' }}
+                                <span class="badge {{ $reservation->reservation_status->getClassSpanName() }}">{{ $reservation->reservation_status->name ?? '' }}</span>
                             </td>
                             <td>
                                 {{ $reservation->guest->fullName() ?? '' }}
