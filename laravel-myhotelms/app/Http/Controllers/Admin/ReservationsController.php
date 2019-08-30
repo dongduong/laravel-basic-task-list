@@ -8,6 +8,7 @@ use App\Http\Requests\MassDestroyReservationRequest;
 use App\Http\Requests\StoreReservationRequest;
 use App\Http\Requests\UpdateReservationRequest;
 use App\Services\StoreReservationService;
+use App\Services\ConfirmReservationService;
 use App\Reservation;
 use App\Room;
 
@@ -64,6 +65,17 @@ class ReservationsController extends Controller
         $reservation->update($request->all());
 
         return redirect()->route('admin.reservations.index');
+    }
+
+    public function confirm($reservation_id)
+    {
+        abort_unless(\Gate::allows('reservation_edit'), 403);
+
+        $service = new ConfirmReservationService();
+
+        $reservation = $service->perform($reservation_id);
+
+        return redirect()->route('admin.reservations.show', compact('reservation'));
     }
 
     public function show(Reservation $reservation)

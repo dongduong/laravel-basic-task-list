@@ -20,10 +20,26 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.reservation.fields.code') }}
+                        </th>
+                        <td>
+                            {{ $reservation->code ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.reservation.fields.status') }}
+                        </th>
+                        <td>
+                            <span class="badge {{ $reservation->reservation_status->getClassSpanName() }}">{{ $reservation->reservation_status->name ?? '' }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.reservation.fields.guest') }}
                         </th>
                         <td>
-                            {{ $reservation->guest->last_name ?? '' }}
+                            {{ $reservation->guest->fullName() ?? '' }}
                         </td>
                     </tr>
                     <tr>
@@ -79,6 +95,26 @@
             <a style="margin-top:20px;" class="btn btn-default" href="{{ url()->previous() }}">
                 {{ trans('global.back_to_list') }}
             </a>
+            @switch($reservation->reservation_status->id)
+                @case(1)
+                    <form action="{{ route('admin.reservations.confirm', [$reservation->id]) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="submit" class="btn btn-info" value="Confirm">
+                    </form>
+                    <a style="margin-top:20px;" class="btn btn-warning" href="{{ url()->previous() }}"> Cancel Reservation</a>
+                    @break
+
+                @case(2)
+                    <form action="{{ route('admin.reservations.confirm', [$reservation->id]) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="submit" class="btn btn-primary" value="Check In">
+                    </form>
+                    <a style="margin-top:20px;" class="btn btn-warning" href="{{ url()->previous() }}"> Cancel Reservation </a>
+                    @break
+
+                @default
+                    <span>Something went wrong, please try again</span>
+            @endswitch
         </div>
     </div>
 </div>
