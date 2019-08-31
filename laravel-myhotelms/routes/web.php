@@ -56,6 +56,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::post('confirm_revervation/{reservation_id}', 'ReservationsController@confirm')->name('reservations.confirm');
 
+    Route::post('cancel_revervation/{reservation_id}', 'ReservationsController@cancel')->name('reservations.cancel');
+
     Route::delete('reservation-statuses/destroy', 'ReservationStatusesController@massDestroy')->name('reservation-statuses.massDestroy');
 
     Route::resource('reservation-statuses', 'ReservationStatusesController');

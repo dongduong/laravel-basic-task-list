@@ -34,7 +34,7 @@ return [
     'no_results'                           => 'No results',
     'results_could_not_be_loaded'          => 'The results could not be loaded',
     'search_input_too_short'               => 'Please enter :count or more characters',
-    'show'                                 => 'Show',
+    'show'                                 => 'Thông Tin Chi Tiết',
     'systemCalendar'                       => 'Calendar',
     'thankYouForUsingOurApplication'       => 'Thank you for using our website',
     'timeFrom'                             => 'From',
