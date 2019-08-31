@@ -101,7 +101,7 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="submit" class="btn btn-info" value="Confirm">
                     </form>
-                    <a style="margin-top:20px;" class="btn btn-warning" href="{{ url()->previous() }}"> Cancel Reservation</a>
+                    <a style="margin-top:20px;" class="btn btn-warning" href="{{ url()->previous() }}"> Cancel </a>
                     @break
 
                 @case(2)
@@ -109,7 +109,7 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="submit" class="btn btn-primary" value="Check In">
                     </form>
-                    <a style="margin-top:20px;" class="btn btn-warning" href="{{ url()->previous() }}"> Cancel Reservation </a>
+                    <a style="margin-top:20px;" class="btn btn-warning" href="{{ url()->previous() }}"> Cancel </a>
                     @break
 
                 @default
