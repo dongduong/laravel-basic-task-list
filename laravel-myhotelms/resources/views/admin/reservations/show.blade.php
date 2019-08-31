@@ -108,8 +108,12 @@
                     @include('admin.reservations.medals.cancel')
                     @break
 
+                @case(3)
+                    @include('admin.reservations.medals.checkout')
+                    @break
+
                 @default
-                    <span>Something went wrong, please try again</span>
+                    <!-- <span>Something went wrong, please try again</span> -->
             @endswitch
         </div>
     </div>

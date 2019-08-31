@@ -11,6 +11,7 @@ use App\Services\StoreReservationService;
 use App\Services\ConfirmReservationService;
 use App\Services\CancelReservationService;
 use App\Services\CheckInReservationService;
+use App\Services\CheckOutReservationService;
 use App\Reservation;
 use App\Room;
 use Session;
@@ -92,6 +93,19 @@ class ReservationsController extends Controller
         $reservation = $service->perform($reservation_id);
 
         Session::flash('message', 'Check-In Reservation was successfully !');
+
+        return redirect()->route('admin.reservations.show', compact('reservation'));
+    }
+
+    public function checkout($reservation_id)
+    {
+        abort_unless(\Gate::allows('reservation_edit'), 403);
+
+        $service = new CheckOutReservationService();
+
+        $reservation = $service->perform($reservation_id);
+
+        Session::flash('message', 'Check-Out Reservation was successfully !');
 
         return redirect()->route('admin.reservations.show', compact('reservation'));
     }

@@ -60,6 +60,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::post('checkin_revervation/{reservation_id}', 'ReservationsController@checkin')->name('reservations.checkin');
 
+    Route::post('checkout_revervation/{reservation_id}', 'ReservationsController@checkout')->name('reservations.checkout');
+
     Route::delete('reservation-statuses/destroy', 'ReservationStatusesController@massDestroy')->name('reservation-statuses.massDestroy');
 
     Route::resource('reservation-statuses', 'ReservationStatusesController');
