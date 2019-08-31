@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateReservationRequest;
 use App\Services\StoreReservationService;
 use App\Services\ConfirmReservationService;
 use App\Services\CancelReservationService;
+use App\Services\CheckInReservationService;
 use App\Reservation;
 use App\Room;
 use Session;
@@ -78,6 +79,19 @@ class ReservationsController extends Controller
         $reservation = $service->perform($reservation_id);
 
         Session::flash('message', 'Confirm Reservation was successfully !');
+
+        return redirect()->route('admin.reservations.show', compact('reservation'));
+    }
+
+    public function checkin($reservation_id)
+    {
+        abort_unless(\Gate::allows('reservation_edit'), 403);
+
+        $service = new CheckInReservationService();
+
+        $reservation = $service->perform($reservation_id);
+
+        Session::flash('message', 'Check-In Reservation was successfully !');
 
         return redirect()->route('admin.reservations.show', compact('reservation'));
     }

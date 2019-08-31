@@ -97,69 +97,15 @@
             </a>
             @switch($reservation->reservation_status->id)
                 @case(1)
-                    <a style="margin-top:20px;" class="btn btn-info" href="#" data-toggle="modal" data-target="#confirmReservationModal"> Confirm Reservation </a>
-
-                    <!-- Confirm Reservation Modal -->
-                    <div class="modal fade" id="confirmReservationModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-scrollable" role="document">
-                        <div class="modal-content">
-                          <form action="{{ route('admin.reservations.confirm', [$reservation->id]) }}" method="POST">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="confirmReservationModalScrollableTitle">Reservation Confirmation</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <p>Are you sure to <b>CONFIRM</b> this reservation?</p>
-                                    <p><i> - <b>Confirmation Email</b> will be sent to Guest </i></p>
-                                    <p><i> - This reservation status will be changed to </i><span class="badge badge-info">Confirmed</span></p>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <input type="submit" class="btn btn-info" value="Confirm Reservation">
-                              </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
+                    @include('admin.reservations.medals.confirm')
                     
-                    <a style="margin-top:20px;" class="btn btn-danger" href="#" data-toggle="modal" data-target="#cancelReservationModal"> Cancel Reservation </a>
-
-                    <!-- Cancel Reservation Modal -->
-                    <div class="modal fade" id="cancelReservationModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-scrollable" role="document">
-                        <div class="modal-content">
-                          <form action="{{ route('admin.reservations.cancel', [$reservation->id]) }}" method="POST">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="cancelReservationModalScrollableTitle">Cancel Reservation</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                    <p>Are you sure to <b>CANCEL</b> this reservation?</p>
-                                    <p><i> - This reservation status will be changed to </i><span class="badge badge-danger">Cancelled</span></p>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <input type="submit" class="btn btn-danger" value="Cancel Reservation">
-                              </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
+                    @include('admin.reservations.medals.cancel')
 
                     @break
 
                 @case(2)
-                    <form action="{{ route('admin.reservations.confirm', [$reservation->id]) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="submit" class="btn btn-primary" value="Check In">
-                    </form>
-                    <a style="margin-top:20px;" class="btn btn-warning" href="{{ url()->previous() }}"> Cancel </a>
+                    @include('admin.reservations.medals.checkin')
+                    @include('admin.reservations.medals.cancel')
                     @break
 
                 @default
