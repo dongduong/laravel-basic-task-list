@@ -11,6 +11,7 @@ use App\Services\StoreReservationService;
 use App\Services\ConfirmReservationService;
 use App\Reservation;
 use App\Room;
+use Session;
 
 class ReservationsController extends Controller
 {
@@ -74,6 +75,8 @@ class ReservationsController extends Controller
         $service = new ConfirmReservationService();
 
         $reservation = $service->perform($reservation_id);
+
+        Session::flash('message', 'Confirm Reservation was successfully !');
 
         return redirect()->route('admin.reservations.show', compact('reservation'));
     }
