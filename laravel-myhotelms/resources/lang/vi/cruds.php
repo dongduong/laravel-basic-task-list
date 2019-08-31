@@ -66,7 +66,7 @@ return [
         ],
     ],
     'roomType'          => [
-        'title'          => 'Room Types',
+        'title'          => 'Loại Phòng',
         'title_singular' => 'Room Type',
         'fields'         => [
             'id'                => 'ID',
@@ -82,11 +82,11 @@ return [
         ],
     ],
     'roomsManagement'   => [
-        'title'          => 'Rooms management',
-        'title_singular' => 'Rooms management',
+        'title'          => 'Quản Lý Phòng',
+        'title_singular' => 'Room management',
     ],
     'roomStatus'        => [
-        'title'          => 'Room Statuses',
+        'title'          => 'Trạng Thái',
         'title_singular' => 'Room Status',
         'fields'         => [
             'id'                => 'ID',
@@ -102,7 +102,7 @@ return [
         ],
     ],
     'room'              => [
-        'title'          => 'Room',
+        'title'          => 'DS Phòng',
         'title_singular' => 'Room',
         'fields'         => [
             'id'                 => 'ID',
@@ -128,7 +128,7 @@ return [
         ],
     ],
     'findRoom'   => [
-        'title'          => 'Find Room',
+        'title'          => 'Tìm Phòng',
         'title_singular' => 'Find Room',
         'book_room'      => 'Book Room',
         'no_rooms_found' => 'Room is full',
@@ -143,11 +143,11 @@ return [
         ],
     ],
     'bookingManagement'   => [
-        'title'          => 'Booking management',
+        'title'          => 'Quản Lý Đặt Phòng',
         'title_singular' => 'Booking management',
     ],
     'guest'             => [
-        'title'          => 'Guests',
+        'title'          => 'Khách',
         'title_singular' => 'Guest',
         'fields'         => [
             'id'                => 'ID',
@@ -175,7 +175,7 @@ return [
         ],
     ],
     'reservation'       => [
-        'title'          => 'Reservations',
+        'title'          => 'Đặt Phòng',
         'title_singular' => 'Reservation',
         'fields'         => [
             'id'                            => 'ID',
@@ -207,7 +207,7 @@ return [
         ],
     ],
     'reservationStatus'        => [
-        'title'          => 'Reservation Statuses',
+        'title'          => 'Trạng Thái',
         'title_singular' => 'Reservation Status',
         'fields'         => [
             'id'                => 'ID',
