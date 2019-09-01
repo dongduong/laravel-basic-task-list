@@ -27,7 +27,11 @@
                         {{ $history->changed_at ?? '' }}
                     </td>
                     <td>
-                        {{ $history->edit_user->name ?? '' }}
+                        @if ($history->action == 'ON REQUEST')
+                            <a href="{{ route('admin.guests.show', $reservation->guest_id) }}" >{{ $history->reservation->guest->fullName() ?? '' }}</a>
+                        @else
+                            {{ $history->edit_user->name ?? '' }}
+                        @endif
                     </td>
                     <td>
                         {{ $history->note ?? '' }}

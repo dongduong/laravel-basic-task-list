@@ -33,4 +33,9 @@ class ReservationHistory extends Model
     {
         return $this->belongsTo(User::class, 'edit_user_id');
     }
+
+    public function reservation()
+    {
+        return $this->belongsTo(Reservation::class, 'reservation_id');
+    }
 }

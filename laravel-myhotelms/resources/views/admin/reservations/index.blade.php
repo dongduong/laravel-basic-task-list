@@ -76,7 +76,7 @@
                                 <span class="badge {{ $reservation->reservation_status->getClassSpanName() }}">{{ $reservation->reservation_status->name ?? '' }}</span>
                             </td>
                             <td>
-                                {{ $reservation->guest->fullName() ?? '' }}
+                                <a href="{{ route('admin.guests.show', $reservation->guest_id) }}" >{{ $reservation->guest->fullName() ?? '' }}</a>
                             </td>
                             <td>
                                 {{ $reservation->guest->address ?? '' }}
