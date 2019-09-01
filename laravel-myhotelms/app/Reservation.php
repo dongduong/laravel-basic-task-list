@@ -52,6 +52,11 @@ class Reservation extends Model
         return $this->belongsTo(ReservationStatus::class, 'reservation_status_id');
     }
 
+    public function editing_user()
+    {
+        return $this->belongsTo(User::class, 'editing_user_id');
+    }
+
     public function getCheckInDateAttribute($value)
     {
         return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;

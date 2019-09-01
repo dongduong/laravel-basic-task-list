@@ -90,6 +90,14 @@
                             {{ $reservation->additional_information }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.reservation.fields.editing_user') }}
+                        </th>
+                        <td>
+                            {{ $reservation->editing_user->name ?? '' }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <a style="margin-top:20px;" class="btn btn-default" href="{{ route('admin.reservations.index') }}">

@@ -204,6 +204,8 @@ return [
             'updated_at_helper'             => '',
             'deleted_at'                    => 'Deleted at',
             'deleted_at_helper'             => '',
+            'editing_user'                  => 'Who',
+            'editing_user_helper'           => '',
         ],
     ],
     'reservationStatus'        => [
