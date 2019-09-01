@@ -13,6 +13,7 @@ use App\Services\CancelReservationService;
 use App\Services\CheckInReservationService;
 use App\Services\CheckOutReservationService;
 use App\Reservation;
+use App\ReservationHistory;
 use App\Room;
 use Session;
 
@@ -129,7 +130,9 @@ class ReservationsController extends Controller
 
         $reservation->load('guest', 'room');
 
-        return view('admin.reservations.show', compact('reservation'));
+        $reservation_histories = ReservationHistory::all()->where('reservation_id', $reservation->id);
+
+        return view('admin.reservations.show', compact('reservation', 'reservation_histories'));
     }
 
     public function destroy(Reservation $reservation)

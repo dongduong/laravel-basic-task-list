@@ -28,4 +28,9 @@ class ReservationHistory extends Model
         'edit_user_id',
         'reservation_id',
     ];
+
+    public function edit_user()
+    {
+        return $this->belongsTo(User::class, 'edit_user_id');
+    }
 }

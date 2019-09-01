@@ -177,6 +177,7 @@ return [
     'reservation'       => [
         'title'          => 'Reservations',
         'title_singular' => 'Reservation',
+        'history'        => 'History',
         'fields'         => [
             'id'                            => 'ID',
             'id_helper'                     => '',
@@ -222,6 +223,19 @@ return [
             'updated_at_helper' => '',
             'deleted_at'        => 'Deleted at',
             'deleted_at_helper' => '',
+        ],
+    ],
+    'reservationHistory'        => [
+        'title'          => 'History',
+        'fields'         => [
+            'action'            => 'Action',
+            'action_helper'     => '',
+            'when'              => 'When',
+            'when_helper'       => '',
+            'who'               => 'Who',
+            'who_helper'        => '',
+            'note'              => 'Note',
+            'note_helper'       => '',
         ],
     ],
     'taskManagement'    => [
