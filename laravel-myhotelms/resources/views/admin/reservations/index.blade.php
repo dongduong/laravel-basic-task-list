@@ -70,7 +70,7 @@
 
                             </td>
                             <td>
-                                {{ $reservation->code ?? '' }}
+                                <a href="{{ route('admin.reservations.show', $reservation->id) }}" >{{ $reservation->code ?? '' }}</a>
                             </td>
                             <td>
                                 <span class="badge {{ $reservation->reservation_status->getClassSpanName() }}">{{ $reservation->reservation_status->name ?? '' }}</span>
