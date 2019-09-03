@@ -30,6 +30,9 @@ class StoreGuestReservationService extends StoreReservationService
             'token' => $this->generateToken()
         ]);
 
+        $historyService = new HistoryReservationService();
+        $historyService->save($reservation);
+
         return $reservation;
     }
 

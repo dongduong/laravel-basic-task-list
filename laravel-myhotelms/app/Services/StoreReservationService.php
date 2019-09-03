@@ -10,9 +10,12 @@ class StoreReservationService
 {
     public function perform(StoreReservationRequest $request)
     {
-        $request->request->add(['code' => $this->generateCode(), 'reservation_status_id' => 1, 'token' => $this->generateToken(), 'editing_user_id' => \Auth::user()->id]); 
+        $request->request->add(['code' => $this->generateCode(), 'reservation_status_id' => 3, 'token' => $this->generateToken(), 'editing_user_id' => \Auth::user()->id]); 
 
         $reservation = Reservation::create($request->all());
+
+        $historyService = new HistoryReservationService();
+        $historyService->save($reservation);
 
         return $reservation;
     }
