@@ -14,7 +14,7 @@ class CheckOutReservationService
     	if ($reservation->room->room_status_id == 2) {
 	        //update room status as Available (or Checkout/On Clean later)
 	        $updateStatusRoomService = new UpdateStatusRoomService();
-	        $updateStatusRoomService->perform($reservation->room_id, 1);
+	        $updateStatusRoomService->perform($reservation, 1);
 
 	        $reservation->update(['reservation_status_id' => 4, 'editing_user_id' => \Auth::user()->id]);
 	        //TODO: update again check out date at datetime perform
