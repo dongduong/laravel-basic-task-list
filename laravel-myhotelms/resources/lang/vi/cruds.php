@@ -127,6 +127,19 @@ return [
             'deleted_at_helper'  => '',
         ],
     ],
+    'roomHistory'        => [
+        'title'          => 'History',
+        'fields'         => [
+            'reservation'            => 'Reservation',
+            'reservation_helper'     => '',
+            'status'                 => 'Status',
+            'status_helper'          => '',
+            'when'                   => 'When',
+            'when_helper'            => '',
+            'note'                   => 'Note',
+            'note_helper'            => '',
+        ],
+    ],
     'findRoom'   => [
         'title'          => 'Tìm Phòng',
         'title_singular' => 'Find Room',

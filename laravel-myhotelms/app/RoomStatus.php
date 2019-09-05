@@ -23,4 +23,20 @@ class RoomStatus extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    public function getClassSpanName()
+    {
+        switch ($this->id) {
+            case 1: //Available
+                return "badge-success";
+            case 2: //Booking
+                return "badge-warning";
+            case 3: //On Repair
+                return "badge-danger";
+            case 4: //Unknown
+                return "badge-dark";
+            default:
+                return "badge-light";
+        }
+    }
 }

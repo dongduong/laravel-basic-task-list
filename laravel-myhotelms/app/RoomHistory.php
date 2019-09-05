@@ -36,4 +36,9 @@ class RoomHistory extends Model
     {
         return $this->belongsTo(Reservation::class, 'reservation_id');
     }
+
+    public function room_status()
+    {
+        return $this->belongsTo(RoomStatus::class, 'room_status_id');
+    }
 }

@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateRoomRequest;
 use App\Room;
 use App\RoomStatus;
 use App\RoomType;
+use App\RoomHistory;
 
 class RoomController extends Controller
 {
@@ -69,7 +70,9 @@ class RoomController extends Controller
 
         $room->load('room_type', 'room_status');
 
-        return view('admin.rooms.show', compact('room'));
+        $room_histories = RoomHistory::all()->where('room_id', $room->id);
+
+        return view('admin.rooms.show', compact('room', 'room_histories'));
     }
 
     public function destroy(Room $room)

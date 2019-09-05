@@ -46,7 +46,7 @@
 
                             </td>
                             <td>
-                                {{ $room->room_number ?? '' }}
+                                <a href="{{ route('admin.rooms.show', $room->id) }}" >{{ $room->room_number ?? '' }}</a>
                             </td>
                             <td>
                                 {{ $room->floor ?? '' }}
@@ -55,7 +55,7 @@
                                 {{ $room->room_type->name ?? '' }}
                             </td>
                             <td>
-                                {{ $room->room_status->name ?? '' }}
+                                <span class="badge {{ $room->room_status->getClassSpanName() }}">{{ $room->room_status->name ?? '' }}</span>
                             </td>
                             <td>
                                 @can('room_show')
