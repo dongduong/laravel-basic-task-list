@@ -11,6 +11,11 @@ Route::post('find_rooms', ['uses' => 'FindRoomsController@find', 'as' => 'find-r
 Route::get('book_rooms', ['uses' => 'BookRoomsController@index', 'as' => 'book-rooms.index']);
 Route::post('book_rooms', ['uses' => 'BookRoomsController@store', 'as' => 'book-rooms.store']);
 Route::get('book_success', ['uses' => 'BookRoomsController@success', 'as' => 'book-rooms.success']);
+Route::get('payment', ['uses' => 'PaymentController@index', 'as' => 'payment.index']);
+Route::get('payment_success', ['uses' => 'PaymentController@success', 'as' => 'payment.success']);
+Route::get('payment_failed', ['uses' => 'PaymentController@failed', 'as' => 'payment.failed']);
+Route::post('paypal', ['uses' => 'PaymentController@paypal', 'as' => 'payment.paypal']);
+Route::get('paypal_status', ['uses' => 'PaymentController@paypalStatus', 'as' => 'payment.paypal.status']);
 Route::redirect('/home', '/admin');
 
 Auth::routes(['register' => false]);

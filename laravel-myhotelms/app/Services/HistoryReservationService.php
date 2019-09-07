@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\ReservationHistory;
-use App\Http\Requests\StoreReservationRequest;
 use Illuminate\Support\Str;
 
 class HistoryReservationService
