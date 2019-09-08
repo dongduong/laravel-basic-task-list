@@ -15,6 +15,7 @@ use App\Services\CheckOutReservationService;
 use App\Reservation;
 use App\ReservationHistory;
 use App\Room;
+use App\Payment;
 use Session;
 
 class ReservationsController extends Controller
@@ -132,7 +133,9 @@ class ReservationsController extends Controller
 
         $reservation_histories = ReservationHistory::all()->where('reservation_id', $reservation->id);
 
-        return view('admin.reservations.show', compact('reservation', 'reservation_histories'));
+        $payments = Payment::all()->where('reservation_id', $reservation->id);
+
+        return view('admin.reservations.show', compact('reservation', 'reservation_histories', 'payments'));
     }
 
     public function destroy(Reservation $reservation)

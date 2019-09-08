@@ -253,6 +253,21 @@ return [
             'note_helper'       => '',
         ],
     ],
+    'payment'        => [
+        'title'          => 'Payment',
+        'fields'         => [
+            'type'              => 'Type',
+            'type_helper'       => '',
+            'amount'            => 'Amount',
+            'amount_helper'     => '',
+            'when'              => 'When',
+            'when_helper'       => '',
+            'method'            => 'Method',
+            'method_helper'     => '',
+            'status'            => 'Status',
+            'status_helper'     => '',
+        ],
+    ],
     'taskManagement'    => [
         'title'          => 'Task management',
         'title_singular' => 'Task management',

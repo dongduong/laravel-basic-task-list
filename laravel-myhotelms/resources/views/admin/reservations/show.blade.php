@@ -9,6 +9,11 @@
         <li class="nav-item">
           <a class="nav-link" href="#history" role="tab" aria-controls="history" aria-selected="false">{{ trans('cruds.reservationHistory.title') }}</a>
         </li>
+        @if ($reservation->reservation_status->id != 1)
+        <li class="nav-item">
+          <a class="nav-link" href="#payment" role="tab" aria-controls="payment" aria-selected="false">{{ trans('cruds.payment.title') }}</a>
+        </li>
+        @endif
       </ul>
     </div>
 
@@ -20,6 +25,11 @@
             <div class="tab-pane" id="history" role="tabpanel" aria-labelledby="history-tab">
                 @include('admin.reservations.tabs.history')
             </div>
+            @if ($reservation->reservation_status->id != 1)
+            <div class="tab-pane" id="payment" role="tabpanel" aria-labelledby="history-tab">
+                @include('admin.reservations.tabs.payment')
+            </div>
+            @endif
         </div>
 
         <a style="margin-top:20px;" class="btn btn-default" href="{{ route('admin.reservations.index') }}">
