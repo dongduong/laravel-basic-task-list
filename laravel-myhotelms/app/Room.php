@@ -19,6 +19,7 @@ class Room extends Model
 
     protected $fillable = [
         'slug',
+        'price',
         'floor',
         'created_at',
         'updated_at',

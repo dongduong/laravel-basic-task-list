@@ -86,11 +86,17 @@ class PaypalService
             }
         }
 
-        /** add payment ID to session **/
-        Session::put('paypal_payment_id', $payment->getId());
-
         if (isset($redirect_url)) {
-            /** redirect to paypal **/
+            /** Create Hotel Payment**/
+            $paymentService = new PaymentService();
+            $paymentService->create(
+                $payment->getId(),
+                "PRE-PAYMENT",
+                $request->get('amount'),
+                3, //Paypal
+                1, //On Progress
+                $request->get('reservation_id')
+            );
             return $redirect_url;
         }
 
@@ -107,13 +113,44 @@ class PaypalService
 
         /** Get the payment ID before session clear **/
         $payment_id = Input::get('paymentId');
+        $token = 
         
         $payment = Payment::get($payment_id, $this->_api_context);
         $execution = new PaymentExecution();
         $execution->setPayerId(Input::get('PayerID'));
 
-        /**Execute the payment **/
-        $result = $payment->execute($execution, $this->_api_context);
-        return ($result->getState() == 'approved');
+        $paymentService = new PaymentService();
+
+        try {
+            /**Execute the payment **/
+            $result = $payment->execute($execution, $this->_api_context);
+            if ($result->getState() == 'approved')
+            {
+                $description = "PayerID : " . Input::get('PayerID');
+                $paymentService->updateStatusSuccess(
+                    $payment_id,
+                    Input::get('token'),
+                    $description
+                );
+                return true;
+            } else if ($result->getState() == 'failed') {
+                $paymentService->updateStatusFailed($payment_id);
+                \Session::put('error', 'Payment failed');
+                return false;
+            } else {
+                // keep status and will be set 'Cancelled' in 24h
+                \Session::put('error', 'Payment failed');
+                return false;
+            }
+
+         } catch (PayPalConnectionException $ex) {
+            if (\Config::get('app.debug')) {
+                \Session::put('error', 'Connection timeout');           
+            } else {
+                \Session::put('error', 'Some error occur, sorry for inconvenient');
+            }
+            $paymentService->updateStatusFailed($payment_id);
+            return false;
+        }
     }
 }

@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             RoomStatusTableSeeder::class,
             ReservationStatusTableSeeder::class,
             RoomsTableSeeder::class,
+            PaymentStatusTableSeeder::class,
+            PaymentMethodTableSeeder::class,
         ]);
     }
 }

@@ -113,6 +113,8 @@ return [
             'floor_helper'       => '',
             'slug'               => 'Slug',
             'slug_helper'        => '',
+            'price'              => 'Price',
+            'price_helper'       => '',
             'room_type'          => 'Room Type',
             'room_type_helper'   => '',
             'room_status'        => 'Room Status',

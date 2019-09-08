@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Services\Payment\PaymentService;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -75,5 +76,15 @@ class Reservation extends Model
     public function setCheckOutDateAttribute($value)
     {
         $this->attributes['check_out_date'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
+    }
+
+    public function prePayAmount()
+    {
+        return $this->room->price * 50 / 100;
+    }
+
+    public function isPaidPrePayment(){
+        $service = new PaymentService();
+        return $service->checkPrePaymentSuccess($this->id);
     }
 }

@@ -35,6 +35,9 @@
                             {{ trans('cruds.room.fields.room_status') }}
                         </th>
                         <th>
+                            {{ trans('cruds.room.fields.price') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -56,6 +59,9 @@
                             </td>
                             <td>
                                 <span class="badge {{ $room->room_status->getClassSpanName() }}">{{ $room->room_status->name ?? '' }}</span>
+                            </td>
+                            <td>
+                                {{ $room->price ?? '' }}$
                             </td>
                             <td>
                                 @can('room_show')
