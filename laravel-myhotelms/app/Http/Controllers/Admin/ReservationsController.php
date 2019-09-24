@@ -16,6 +16,7 @@ use App\Reservation;
 use App\ReservationHistory;
 use App\Room;
 use App\Payment;
+use App\Events\RoomPayment;
 use Session;
 
 class ReservationsController extends Controller
@@ -80,6 +81,11 @@ class ReservationsController extends Controller
         $service = new ConfirmReservationService();
 
         $reservation = $service->perform($reservation_id);
+
+        //TODO: FF with payment
+        if ($reservation) {
+            event(new RoomPayment($reservation));
+        }
 
         Session::flash('message', 'Confirm Reservation was successfully !');
 

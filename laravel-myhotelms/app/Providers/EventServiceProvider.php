@@ -8,7 +8,9 @@ use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 use App\Events\RoomReserved;
+use App\Events\RoomPayment;
 use App\Listeners\SendReservationNotification;
+use App\Listeners\SendReservationPayment;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         RoomReserved::class => [
             SendReservationNotification::class,
+        ],
+        RoomPayment::class => [
+            SendReservationPayment::class,
         ],
     ];
 
