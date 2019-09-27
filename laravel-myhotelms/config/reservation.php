@@ -6,5 +6,6 @@ return [
 	           'checkin' 		=> 'CHECK IN',
 	           'checkout' 		=> 'CHECK OUT',
 	           'cancel' 		=> 'CANCEL',
+	           'payment' 		=> 'ON PAYMENT',
 	         ],
 ];

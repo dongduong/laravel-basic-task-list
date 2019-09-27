@@ -59,6 +59,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::resource('reservations', 'ReservationsController');
 
+    Route::post('payment_revervation/{reservation_id}', 'ReservationsController@payment')->name('reservations.payment');
+
     Route::post('confirm_revervation/{reservation_id}', 'ReservationsController@confirm')->name('reservations.confirm');
 
     Route::post('cancel_revervation/{reservation_id}', 'ReservationsController@cancel')->name('reservations.cancel');

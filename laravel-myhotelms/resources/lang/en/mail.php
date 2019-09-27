@@ -40,7 +40,7 @@ return [
         'check-out-date' => 'Check Out Date',
         'adults' => 'Adults',
         'children' => 'Children',
-        'final-summary' => 'Thanks for showing your interest in our hotel. You will receive the confirmation email booking successful with QR check-in room code after finish this payment.',
+        'final-summary' => 'Thanks for showing your interest in our hotel. After payment successful, we will start to confirm with you in 24 hours and you will receive the confirmation email booking successful with QR check-in room code.',
         'help' => 'If you need any kind of help please contact us at :support_email',
         'thanks' => 'Thanks!'
     ]

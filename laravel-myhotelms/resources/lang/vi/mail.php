@@ -40,7 +40,7 @@ return [
         'check-out-date' => 'Ngày Check Out',
         'adults' => 'Người Lớn',
         'children' => 'Trẻ Em',
-        'final-summary' => 'Cảm ơn quý khách đã lựa chọn khách sạn chúng tôi. Sau khi thanh toán thành công, quý khách sẽ nhận được một email xác nhận đã thanh toán cũng mã QR check-in code.',
+        'final-summary' => 'Cảm ơn quý khách đã lựa chọn khách sạn chúng tôi. Sau khi thanh toán thành công, chúng tôi sẽ xác nhận trong vòng 24 tiếng và quý khách sẽ nhận được một email xác nhận đã thanh toán cũng như mã QR check-in phòng.',
         'help' => 'Mọi thắc mắc xin vui lòng liên lạc qua email :support_email',
         'thanks' => 'Xin cảm ơn quý khách!'
     ]

@@ -37,7 +37,12 @@
         </a>
         @switch($reservation->reservation_status->id)
             @case(1)
-                @include('admin.reservations.medals.confirm')
+
+                @if( App\FeatureFlag::process_payment() )
+                    @include('admin.reservations.medals.payment')
+                @else
+                    @include('admin.reservations.medals.confirm')
+                @endif
                 
                 @include('admin.reservations.medals.cancel')
 
@@ -50,6 +55,11 @@
 
             @case(3)
                 @include('admin.reservations.medals.checkout')
+                @break
+
+            @case(10)
+                @include('admin.reservations.medals.confirm')
+                @include('admin.reservations.medals.cancel')
                 @break
 
             @default

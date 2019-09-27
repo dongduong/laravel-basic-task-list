@@ -8,6 +8,7 @@ use App\Http\Requests\MassDestroyReservationRequest;
 use App\Http\Requests\StoreReservationRequest;
 use App\Http\Requests\UpdateReservationRequest;
 use App\Services\StoreReservationService;
+use App\Services\PaymentReservationService;
 use App\Services\ConfirmReservationService;
 use App\Services\CancelReservationService;
 use App\Services\CheckInReservationService;
@@ -74,6 +75,23 @@ class ReservationsController extends Controller
         return redirect()->route('admin.reservations.index');
     }
 
+    public function payment($reservation_id)
+    {
+        abort_unless(\Gate::allows('reservation_edit'), 403);
+
+        $service = new PaymentReservationService();
+
+        $reservation = $service->perform($reservation_id);
+
+        if ($reservation) {
+            event(new RoomPayment($reservation));
+        }
+
+        Session::flash('message', 'Send Payment Request successfully !');
+
+        return redirect()->route('admin.reservations.show', compact('reservation'));
+    }
+
     public function confirm($reservation_id)
     {
         abort_unless(\Gate::allows('reservation_edit'), 403);
@@ -82,12 +100,7 @@ class ReservationsController extends Controller
 
         $reservation = $service->perform($reservation_id);
 
-        //TODO: FF with payment
-        if ($reservation) {
-            event(new RoomPayment($reservation));
-        }
-
-        Session::flash('message', 'Confirm Reservation was successfully !');
+        Session::flash('message', 'Confirm Reservation successfully !');
 
         return redirect()->route('admin.reservations.show', compact('reservation'));
     }
@@ -100,7 +113,7 @@ class ReservationsController extends Controller
 
         $reservation = $service->perform($reservation_id);
 
-        Session::flash('message', 'Check-In Reservation was successfully !');
+        Session::flash('message', 'Check-In Reservation successfully !');
 
         return redirect()->route('admin.reservations.show', compact('reservation'));
     }
@@ -113,7 +126,7 @@ class ReservationsController extends Controller
 
         $reservation = $service->perform($reservation_id);
 
-        Session::flash('message', 'Check-Out Reservation was successfully !');
+        Session::flash('message', 'Check-Out Reservation successfully !');
 
         return redirect()->route('admin.reservations.show', compact('reservation'));
     }
@@ -126,7 +139,7 @@ class ReservationsController extends Controller
 
         $reservation = $service->perform($reservation_id);
 
-        Session::flash('message', 'Cancel Reservation was successfully !');
+        Session::flash('message', 'Cancel Reservation successfully !');
 
         return redirect()->route('admin.reservations.show', compact('reservation'));
     }

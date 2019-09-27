@@ -32,6 +32,8 @@ class HistoryReservationService
                 return \Config::get('reservation.action.checkout');
             case 5:
                 return \Config::get('reservation.action.cancel');
+            case 10:
+                return \Config::get('reservation.action.payment');
             default:
                 return "UNKNOWN";
         }

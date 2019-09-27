@@ -60,6 +60,12 @@ class ReservationStatusTableSeeder extends Seeder
                 'name'       => 'Unsuccessful',
                 'created_at' => '2019-07-31 17:32:06',
                 'updated_at' => '2019-07-31 17:32:06',
+            ],
+            [
+                'id'         => '10',
+                'name'       => 'On Payment',
+                'created_at' => '2019-07-31 17:32:06',
+                'updated_at' => '2019-07-31 17:32:06',
             ]];
 
         ReservationStatus::insert($reservationStatuses);

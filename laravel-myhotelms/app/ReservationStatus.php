@@ -46,6 +46,8 @@ class ReservationStatus extends Model
                 return "badge-secondary";
             case 9: // Unsuccessful
                 return "badge-dark";
+            case 10: // On Payment
+                return "badge-secondary";
             default:
                 return "badge-light";
         }
