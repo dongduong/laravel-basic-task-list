@@ -35,7 +35,7 @@
     <div class="row mb-5">
       <div class="col-md-12">
         <div class="block-32">
-          @include('partials.paypal-form')
+          @include('partials.payment-form')
         </div>
       </div>
     </div>

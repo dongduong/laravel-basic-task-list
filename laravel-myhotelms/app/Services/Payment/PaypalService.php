@@ -2,7 +2,6 @@
 
 namespace App\Services\Payment;
 
-use App\RoomHistory;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;

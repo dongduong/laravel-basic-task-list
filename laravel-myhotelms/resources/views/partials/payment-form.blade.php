@@ -1,5 +1,5 @@
 @if (isset($reservation) && !$reservation->isPaidPrePayment())
-  <form class="w3-container w3-display-middle w3-card-4 " method="POST" id="payment-form"  action="{{ route('payment.paypal') }}">
+  <form class="w3-container w3-display-middle w3-card-4 " method="POST" id="payment-form"  action="{{ route('payment.vnpay') }}">
       {{ csrf_field() }}
       <h2 class="w3-text-blue">Payment Reservation</h2>
       <p>You need pay mount 50% on total price to complete the reservation </p>
@@ -16,13 +16,13 @@
 
         <!-- Group of default radios - option 2 -->
         <div class="custom-control custom-radio">
-          <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios" checked>
+          <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="groupOfDefaultRadios">
           <label class="custom-control-label" for="defaultGroupExample2">Paypal</label>
         </div>
 
         <!-- Group of default radios - option 3 -->
         <div class="custom-control custom-radio">
-          <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios">
+          <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="groupOfDefaultRadios" checked>
           <label class="custom-control-label" for="defaultGroupExample3">VNPay</label>
         </div>
 

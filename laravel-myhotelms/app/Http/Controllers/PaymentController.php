@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Reservation;
 use App\Services\Payment\PaypalService;
+use App\Services\Payment\VnpayService;
 use Illuminate\Http\Request;
 use Redirect;
 
@@ -64,5 +65,32 @@ class PaymentController extends Controller
     	} else {
     		return redirect()->route('payment.failed');
     	}
+    }
+
+    public function vnpay(Request $request)
+    {
+        //TODO: check FF payment
+
+        $service = new VnpayService();
+        $redirect_url = $service->pay($request);
+
+        if ($redirect_url) {
+            /** redirect to paypal **/
+            return Redirect::away($redirect_url);
+        } else {
+            return redirect()->route('payment.failed');
+        }
+    }
+
+    //callback from VNPay
+    public function vnpayStatus(Request $request)
+    {
+        $service = new VnpayService();
+        $result = $service->getPaymentStatus($request);
+        if ($result) {
+            return redirect()->route('payment.success');
+        } else {
+            return redirect()->route('payment.failed');
+        }
     }
 }

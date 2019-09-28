@@ -16,6 +16,8 @@ Route::get('payment_success', ['uses' => 'PaymentController@success', 'as' => 'p
 Route::get('payment_failed', ['uses' => 'PaymentController@failed', 'as' => 'payment.failed']);
 Route::post('paypal', ['uses' => 'PaymentController@paypal', 'as' => 'payment.paypal']);
 Route::get('paypal_status', ['uses' => 'PaymentController@paypalStatus', 'as' => 'payment.paypal.status']);
+Route::post('vnpay', ['uses' => 'PaymentController@vnpay', 'as' => 'payment.vnpay']);
+Route::get('vnpay_status', ['uses' => 'PaymentController@vnpayStatus', 'as' => 'payment.vnpay.status']);
 Route::redirect('/home', '/admin');
 
 Auth::routes(['register' => false]);
