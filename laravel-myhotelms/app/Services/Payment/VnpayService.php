@@ -5,6 +5,7 @@ namespace App\Services\Payment;
 use Illuminate\Http\Request;
 use Session;
 use URL;
+use App\Enums\PAYMENT_METHOD;
 
 class VnpayService
 {
@@ -71,14 +72,11 @@ class VnpayService
             $vnpSecureHash = hash('sha256', $vnp_HashSecret . $hashdata);
             $vnp_Url .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
 
-            /** Create Hotel Payment**/
             $paymentService = new PaymentService();
-            $paymentService->create(
+            $paymentService->updateProcess(
                 $vnp_TxnRef,
-                "PRE-PAYMENT",
                 $request->get('amount'),
-                4, //Paypal
-                1, //On Progress
+                PAYMENT_METHOD::VNPay, 
                 $request->get('reservation_id')
             );
             return $vnp_Url;
@@ -105,9 +103,6 @@ class VnpayService
 
         $url = session('url_prev','/');
         if($request->vnp_ResponseCode == "00") {
-            // $this->apSer->thanhtoanonline(session('cost_id'));
-            //return redirect($url)->with('success' ,'Đã thanh toán phí dịch vụ');
-
             $payment_id = $request->vnp_TxnRef;
             $token = $request->vnp_SecureHash;
             $description = "Response CODE : " . $request->vnp_ResponseCode . " .Transaction No : " . $request->vnp_TransactionNo . " .Payer Info : " . $request->vnp_OrderInfo . " .Bank CODE: " . $request->vnp_BankCode . " .Pay date: " . $request->vnp_PayDate;
@@ -129,6 +124,5 @@ class VnpayService
             \Session::put('error', 'Some error occur, sorry for inconvenient');
         }
         return false;
-        //return redirect($url)->with('errors' ,'Lỗi trong quá trình thanh toán phí dịch vụ');
     }
 }

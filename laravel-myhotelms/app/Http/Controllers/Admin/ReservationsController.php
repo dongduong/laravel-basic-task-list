@@ -13,6 +13,7 @@ use App\Services\ConfirmReservationService;
 use App\Services\CancelReservationService;
 use App\Services\CheckInReservationService;
 use App\Services\CheckOutReservationService;
+use App\Services\Payment\PaymentService;
 use App\Reservation;
 use App\ReservationHistory;
 use App\Room;
@@ -85,6 +86,12 @@ class ReservationsController extends Controller
 
         if ($reservation) {
             event(new RoomPayment($reservation));
+
+            $paymentService = new PaymentService();
+            $paymentService->createPrePayment(
+                $reservation->prePayAmount(),
+                $reservation_id
+            );
         }
 
         Session::flash('message', 'Send Payment Request successfully !');

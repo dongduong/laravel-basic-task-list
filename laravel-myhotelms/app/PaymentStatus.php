@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Enums\PAYMENT_STATUS;
 
 class PaymentStatus extends Model
 {
@@ -27,15 +28,17 @@ class PaymentStatus extends Model
     public function getClassSpanName()
     {
         switch ($this->id) {
-            case 1: //On Progress
+            case PAYMENT_STATUS::Waiting:
                 return "badge-warning";
-            case 2: //Success
+            case PAYMENT_STATUS::OnProgress:
+                return "badge-warning";
+            case PAYMENT_STATUS::Success:
                 return "badge-success";
-            case 3: //Cancelled
+            case PAYMENT_STATUS::Cancelled:
                 return "badge-dark";
-            case 4: //Failed
+            case PAYMENT_STATUS::Failed:
                 return "badge-danger";
-            case 5: //Withdraw
+            case PAYMENT_STATUS::Withdraw:
                 return "badge-primary";
             default:
                 return "badge-light";

@@ -18,6 +18,7 @@ use PayPal\Api\Transaction;
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentExecution;
 use PayPal\Exception\PayPalConnectionException;
+use App\Enums\PAYMENT_METHOD;
 
 class PaypalService
 {
@@ -86,14 +87,11 @@ class PaypalService
         }
 
         if (isset($redirect_url)) {
-            /** Create Hotel Payment**/
             $paymentService = new PaymentService();
-            $paymentService->create(
+            $paymentService->updateProcess(
                 $payment->getId(),
-                "PRE-PAYMENT",
                 $request->get('amount'),
-                3, //Paypal
-                1, //On Progress
+                PAYMENT_METHOD::Paypal,
                 $request->get('reservation_id')
             );
             return $redirect_url;
