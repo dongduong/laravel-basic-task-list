@@ -95,7 +95,7 @@ class VnpayService
         
         if ($request->vnp_TmnCode != $this->_vnpay_conf['code']) {
             if (\Config::get('app.debug')) {
-                \Session::put('error', 'VNPAY CODE incorrect when receive return status');           
+                \Session::put('error', 'VNPAY CODE incorrect when return status');           
             } else {
                 \Session::put('error', 'Some error occur, sorry for inconvenient');
             }
@@ -109,9 +109,8 @@ class VnpayService
             //return redirect($url)->with('success' ,'Đã thanh toán phí dịch vụ');
 
             $payment_id = $request->vnp_TxnRef;
-            //TODO:  token = vnp_SecureHash
-            $token = $request->vnp_TransactionNo;
-            $description = "Response CODE : " . $request->vnp_ResponseCode . " .Payer Info : " . $request->vnp_OrderInfo . " .Bank CODE: " . $request->vnp_BankCode . " .Pay date: " . $request->vnp_PayDate;
+            $token = $request->vnp_SecureHash;
+            $description = "Response CODE : " . $request->vnp_ResponseCode . " .Transaction No : " . $request->vnp_TransactionNo . " .Payer Info : " . $request->vnp_OrderInfo . " .Bank CODE: " . $request->vnp_BankCode . " .Pay date: " . $request->vnp_PayDate;
             $paymentService = new PaymentService();
             $paymentService->updateStatusSuccess(
                     $payment_id,
