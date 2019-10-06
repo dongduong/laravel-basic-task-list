@@ -43,5 +43,26 @@ return [
         'final-summary' => 'Cảm ơn quý khách đã lựa chọn khách sạn chúng tôi. Sau khi thanh toán thành công, chúng tôi sẽ xác nhận trong vòng 24 tiếng và quý khách sẽ nhận được một email xác nhận đã thanh toán cũng như mã QR check-in phòng.',
         'help' => 'Mọi thắc mắc xin vui lòng liên lạc qua email :support_email',
         'thanks' => 'Xin cảm ơn quý khách!'
-    ]
+    ],
+    'reservation-confirm' => [
+        'subject' => 'Xác Nhận Đặt Phòng Thành Công',
+        'heading' => 'Đặt Phòng Thành Công',
+        'dear' => 'Dear :customer_name',
+        'greeting' => 'Đơn đặt phòng :order_code của bạn đã được xác nhận thành công',
+        'summary' => 'Thông Tin Chi Tiết',
+        'guest' => 'Khách',
+        'address' => 'Địa Chỉ',
+        'city' => 'Thành Phố',
+        'country' => 'Quốc Gia',
+        'phone' => 'Số Điện Thoại',
+        'room-number' => 'Số Phòng',
+        'room-type' => 'Loại Phòng',
+        'check-in-date' => 'Ngày Check In',
+        'check-out-date' => 'Ngày Check Out',
+        'adults' => 'Người Lớn',
+        'children' => 'Trẻ Em',
+        'final-summary' => 'Cảm ơn quý khách đã lựa chọn khách sạn chúng tôi.',
+        'help' => 'Mọi thắc mắc xin vui lòng liên lạc qua email :support_email',
+        'thanks' => 'Xin cảm ơn quý khách!'
+    ],
 ];

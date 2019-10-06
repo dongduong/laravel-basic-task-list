@@ -19,6 +19,7 @@ use App\ReservationHistory;
 use App\Room;
 use App\Payment;
 use App\Events\RoomPayment;
+use App\Events\RoomConfirmed;
 use Session;
 
 class ReservationsController extends Controller
@@ -107,7 +108,11 @@ class ReservationsController extends Controller
 
         $reservation = $service->perform($reservation_id);
 
-        Session::flash('message', 'Confirm Reservation successfully !');
+        if ($reservation) {
+            event(new RoomConfirmed($reservation));
+
+            Session::flash('message', 'Confirm Reservation successfully !');
+        }
 
         return redirect()->route('admin.reservations.show', compact('reservation'));
     }

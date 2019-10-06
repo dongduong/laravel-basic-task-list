@@ -9,8 +9,10 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 
 use App\Events\RoomReserved;
 use App\Events\RoomPayment;
+use App\Events\RoomConfirmed;
 use App\Listeners\SendReservationNotification;
 use App\Listeners\SendReservationPayment;
+use App\Listeners\SendReservationConfirm;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -28,6 +30,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         RoomPayment::class => [
             SendReservationPayment::class,
+        ],
+        RoomConfirmed::class => [
+            SendReservationConfirm::class,
         ],
     ];
 

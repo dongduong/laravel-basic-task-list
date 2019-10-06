@@ -43,5 +43,26 @@ return [
         'final-summary' => 'Thanks for showing your interest in our hotel. After payment successful, we will start to confirm with you in 24 hours and you will receive the confirmation email booking successful with QR check-in room code.',
         'help' => 'If you need any kind of help please contact us at :support_email',
         'thanks' => 'Thanks!'
-    ]
+    ],
+    'reservation-confirm' => [
+        'subject' => 'Room Reservation Confirmation',
+        'heading' => 'Reservation Comfirmation',
+        'dear' => 'Dear :customer_name',
+        'greeting' => 'Your Reservation :order_code is confirmed successfully',
+        'summary' => 'Summary of Reservation',
+        'guest' => 'Guest',
+        'address' => 'Address',
+        'city' => 'City',
+        'country' => 'Country',
+        'phone' => 'Phone Number',
+        'room-number' => 'Room Number',
+        'room-type' => 'Room Type',
+        'check-in-date' => 'Check In Date',
+        'check-out-date' => 'Check Out Date',
+        'adults' => 'Adults',
+        'children' => 'Children',
+        'final-summary' => 'Thanks for your reservation..',
+        'help' => 'If you need any kind of help please contact us at :support_email',
+        'thanks' => 'Thanks!'
+    ],
 ];
